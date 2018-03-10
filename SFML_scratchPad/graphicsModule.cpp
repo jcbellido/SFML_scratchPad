@@ -103,7 +103,9 @@ void buildAssets ()
 	text->setPosition( sf::Vector2f( 300, 300 ) );
 }
 
-int main ( int argc, char* args[] )
+// int main ( int argc, char* args[] )
+
+int graphicsModule_WinMain ( )
 {
 	int style = sf::Style::Resize;	// Want to see what happens when using absolute pixel coordinates
 

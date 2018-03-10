@@ -19,11 +19,11 @@
     <Filter Include="02_investigatingSFML">
       <UniqueIdentifier>{ba7056e4-8451-447b-8808-194066ef0f92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03_shaping">
+      <UniqueIdentifier>{1471fbb6-7042-4152-a206-a15228df2a1b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
-      <Filter>ProvingItWorks</Filter>
-    </ClCompile>
     <ClCompile Include="systemModule.cpp">
       <Filter>02_investigatingSFML</Filter>
     </ClCompile>
@@ -32,6 +32,21 @@
     </ClCompile>
     <ClCompile Include="graphicsModule.cpp">
       <Filter>02_investigatingSFML</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>03_shaping</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>03_shaping</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>03_shaping</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sfml_main.cpp">
+      <Filter>ProvingItWorks</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStatesImplementation.cpp">
+      <Filter>03_shaping</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +67,15 @@
   <ItemGroup>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>03_shaping</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>03_shaping</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStatesImplementation.h">
+      <Filter>03_shaping</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
