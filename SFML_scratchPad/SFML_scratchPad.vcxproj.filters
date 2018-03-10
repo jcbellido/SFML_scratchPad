@@ -30,6 +30,9 @@
     <ClCompile Include="windowModule.cpp">
       <Filter>02_investigatingSFML</Filter>
     </ClCompile>
+    <ClCompile Include="graphicsModule.cpp">
+      <Filter>02_investigatingSFML</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\cute_image.jpg">

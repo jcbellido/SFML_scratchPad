@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
-int main ( int argc, char* args[] )
+int window_modulemain ( int argc, char* args[] )
 {
 	int style =  sf::Style::None | sf::Style::Resize;
 
