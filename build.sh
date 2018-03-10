@@ -32,3 +32,4 @@ fi
 pushd build 
 
 cmake ..
+make

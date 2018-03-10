@@ -1,0 +1,2 @@
+#define SFML_scratchPad_VERSION_MAJOR 1
+#define SFML_scratchPad_VERSION_MINOR 0

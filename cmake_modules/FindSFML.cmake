@@ -55,77 +55,31 @@
 #   add_executable(myapp ...)
 #   target_link_libraries(myapp ${SFML_LIBRARIES})
 
-function(set_sfml_find_paths)
-    # define the list of search paths for headers and libraries
-    set(FIND_SFML_PATHS
-        ${PROJECT_SOURCE_DIR}
-        ${SFML_ROOT_PATH}
-        )
-endfunction()
-
-function(find_sfml_include_and_docs)
-    if(NOT FIND_SFML_PATHS)
-        set_sfml_find_paths()
-    endif()
-
-    # find the SFML include and docs directory
-    find_path(SFML_INCLUDE_DIR SFML/Config.hpp
-            PATH_SUFFIXES include
-            PATHS ${FIND_SFML_PATHS})
-
-    find_path(SFML_DOC_DIR SFML.tag
-            PATH_SUFFIXES SFML/doc share/SFML/doc
-            PATHS ${FIND_SFML_PATHS})
-endfunction()
-
-function(sfml_build_target)
-endfunction()
-
 # define the SFML_STATIC macro if static build was chosen
 if(SFML_STATIC_LIBRARIES)
     add_definitions(-DSFML_STATIC)
 endif()
 
-# check the version number
-set(SFML_VERSION_OK TRUE)
-if(SFML_FIND_VERSION AND SFML_INCLUDE_DIR)
-    # extract the major and minor version numbers from SFML/Config.hpp
-    # we have to handle framework a little bit differently:
-    if("${SFML_INCLUDE_DIR}" MATCHES "SFML.framework")
-        set(SFML_CONFIG_HPP_INPUT "${SFML_INCLUDE_DIR}/Headers/Config.hpp")
-    else()
-        set(SFML_CONFIG_HPP_INPUT "${SFML_INCLUDE_DIR}/SFML/Config.hpp")
-    endif()
-    FILE(READ "${SFML_CONFIG_HPP_INPUT}" SFML_CONFIG_HPP_CONTENTS)
-    STRING(REGEX REPLACE ".*#define SFML_VERSION_MAJOR ([0-9]+).*" "\\1" SFML_VERSION_MAJOR "${SFML_CONFIG_HPP_CONTENTS}")
-    STRING(REGEX REPLACE ".*#define SFML_VERSION_MINOR ([0-9]+).*" "\\1" SFML_VERSION_MINOR "${SFML_CONFIG_HPP_CONTENTS}")
-    STRING(REGEX REPLACE ".*#define SFML_VERSION_PATCH ([0-9]+).*" "\\1" SFML_VERSION_PATCH "${SFML_CONFIG_HPP_CONTENTS}")
-    if (NOT "${SFML_VERSION_PATCH}" MATCHES "^[0-9]+$")
-        set(SFML_VERSION_PATCH 0)
-    endif()
-    math(EXPR SFML_REQUESTED_VERSION "${SFML_FIND_VERSION_MAJOR} * 10000 + ${SFML_FIND_VERSION_MINOR} * 100 + ${SFML_FIND_VERSION_PATCH}")
+# define the list of search paths for headers and libraries
+set(FIND_SFML_PATHS
+    ${PROJECT_SOURCE_DIR}
+    $ENV{SFML_ROOT_DIR}
+    $ENV{SFML_BUILD_DIR}
+)
 
-    # if we could extract them, compare with the requested version number
-    if (SFML_VERSION_MAJOR)
-        # transform version numbers to an integer
-        math(EXPR SFML_VERSION "${SFML_VERSION_MAJOR} * 10000 + ${SFML_VERSION_MINOR} * 100 + ${SFML_VERSION_PATCH}")
+message(${FIND_SFML_PATHS})
 
-        # compare them
-        if(SFML_VERSION LESS SFML_REQUESTED_VERSION)
-            set(SFML_VERSION_OK FALSE)
-        endif()
-    else()
-        # SFML version is < 2.0
-        if (SFML_REQUESTED_VERSION GREATER 10900)
-            set(SFML_VERSION_OK FALSE)
-            set(SFML_VERSION_MAJOR 1)
-            set(SFML_VERSION_MINOR x)
-            set(SFML_VERSION_PATCH x)
-        endif()
-    endif()
-endif()
+# find the SFML include directory
+find_path(SFML_INCLUDE_DIR SFML/Config.hpp
+          PATH_SUFFIXES include
+          PATHS ${FIND_SFML_PATHS})
+
+find_path(SFML_DOC_DIR SFML.tag
+          PATH_SUFFIXES SFML/doc share/SFML/doc
+          PATHS ${FIND_SFML_PATHS})
 
 # find the requested modules
+set(SFML_VERSION_OK TRUE)
 set(SFML_FOUND TRUE) # will be set to false if one of the required modules is not found
 foreach(FIND_SFML_COMPONENT ${SFML_FIND_COMPONENTS})
     string(TOLOWER ${FIND_SFML_COMPONENT} FIND_SFML_COMPONENT_LOWER)
