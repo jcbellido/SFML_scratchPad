@@ -1,0 +1,1 @@
+cmake ./SFML_scratchPad
