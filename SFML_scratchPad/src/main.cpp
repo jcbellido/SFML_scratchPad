@@ -4,21 +4,17 @@
 #include <SFML/Window.hpp>
 #include <SFML/OpenGL.hpp>
 
+// Took from the samples directory in SFML, the idea is to prove that the whole
+//   install is working properly.
 
-////////////////////////////////////////////////////////////
-/// Entry point of application
-///
-/// \return Application exit code
-///
-////////////////////////////////////////////////////////////
-int main()
+int DELETEME_main()
 {
     // Request a 24-bits depth buffer when creating the window
     sf::ContextSettings contextSettings;
     contextSettings.depthBits = 24;
 
     // Create the main window
-    sf::Window window(sf::VideoMode(640, 480), "SFML window with OpenGL", sf::Style::Default, contextSettings);
+    sf::Window window( sf::VideoMode(640, 480), "SFML window with OpenGL", sf::Style::Default, contextSettings );
 
     // Make it the active window for OpenGL calls
     window.setActive();
