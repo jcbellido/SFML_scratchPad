@@ -294,3 +294,5 @@ CMakeFiles/
 cmake_install.cmake
 CPackConfig.cmake
 CPackSourceConfig.cmake
+sfml_build/
+build/
