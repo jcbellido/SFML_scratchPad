@@ -140,6 +140,7 @@ copy $(SolutionDir)resources\*.* $(OutputPath)resources</Command>
     <ClCompile Include="GameStatesImplementation.cpp" />
     <ClCompile Include="graphicsModule.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NoCoinState.cpp" />
     <ClCompile Include="src\sfml_main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -150,17 +151,24 @@ copy $(SolutionDir)resources\*.* $(OutputPath)resources</Command>
     <Image Include="resources\cute_image.jpg">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
     </Image>
+    <Image Include="resources\logo.png" />
+    <Image Include="resources\Pac Woman.png" />
+    <Image Include="resources\texture.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\nice_music.ogg" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="resources\font.ttf" />
     <Font Include="resources\sansation.ttf" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameStates.h" />
     <ClInclude Include="GameStatesImplementation.h" />
+    <ClInclude Include="GraphicsUtils.h" />
+    <ClInclude Include="NoCoinState.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

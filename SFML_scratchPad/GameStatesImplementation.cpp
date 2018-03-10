@@ -1,15 +1,6 @@
 #include "GameStatesImplementation.h"
-
-NoCoinState::NoCoinState ( Game * game ) : GameState( game ) { }
-
-void NoCoinState::InsertCoin () {}
-void NoCoinState::PressButton () {}
-void NoCoinState::MoveStick ( sf::Vector2i direction ) {}
-
-void NoCoinState::HandleInput () {}
-void NoCoinState::Update ( sf::Time delta ) {}
-void NoCoinState::Draw ( sf::RenderWindow & window ) {}
-
+#include "Game.h"
+#include "GraphicsUtils.h"
 
 GetReadyState::GetReadyState ( Game * game ) : GameState( game ) { }
 

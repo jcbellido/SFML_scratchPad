@@ -15,8 +15,21 @@ public:
 
 	void ChangeGameState( GameState::State gameState );
 
+	sf::Font & GetFont();
+	sf::Texture & GetLogo();
+	sf::Texture & GetTexture();
+
+	sf::Vector2u GetVideoSize();
+
 private:
+	void InitializeGameStates();
+	void LoadSharedResources();
+
 	sf::RenderWindow m_window;
 	GameState * m_currentState;
 	std::array< GameState *, GameState::Count > m_states;
+
+	sf::Font m_font;
+	sf::Texture m_logo;
+	sf::Texture m_texture;
 };

@@ -18,6 +18,11 @@ public:
 	};
 
 	GameState( Game * game );
+	// The state is being evicted
+	virtual void PreLeave() { }
+
+	// The state is about to be used
+	virtual void PreEnter() { }
 
 	virtual void InsertCoin () =0;
 	virtual void PressButton () =0;
