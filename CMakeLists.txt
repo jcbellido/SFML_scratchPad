@@ -1,0 +1,6 @@
+
+set(PROJ_NAME "SFML_scratchPad")
+project(${PROJ_NAME})
+
+set(SFML_SRC_PATH "${CMAKE_CURRENT_LIST_DIR}/sfml")
+set(GAME_SRC_PATH "${CMAKE_CURRENT_LIST_DIR}/${PROJ_NAME}")
