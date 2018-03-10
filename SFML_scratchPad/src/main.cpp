@@ -7,7 +7,7 @@
 // Took from the samples directory in SFML, the idea is to prove that the whole
 //   install is working properly.
 
-int DELETEME_main()
+int main()
 {
     // Request a 24-bits depth buffer when creating the window
     sf::ContextSettings contextSettings;

@@ -61,8 +61,14 @@ if(SFML_FOUND)
   target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES}) 
 endif()
 
-message("${SFML_LIBRARIES}")
-message("${SFML_DEPENDENCIES}")
+# OpenGL
+find_package(OpenGL REQUIRED)
+include_directories(${OPENGL_INCLUDE_DIR})
+if (OPENGL_FOUND)
+  target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
+  # or: target_link_libraries(${PROJECT_NAME} ${OPENGL_gl_LIBRARY})
+  target_link_libraries(${PROJECT_NAME} m)  # if you use maths.h
+endif()
 
 # Install target
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
