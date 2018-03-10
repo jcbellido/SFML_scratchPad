@@ -1,6 +1,8 @@
 #Change this if you need to target a specific CMake version
 cmake_minimum_required(VERSION 2.6)
 
+project(SFML_scratchPad)
+
 set(REQUIRED_SFML_MODULES
   network
   audio
@@ -33,8 +35,6 @@ if (APPLE)
 elseif(WIN32)
   set(SFML_CMAKE_ARGS "")
 endif()
-
-project(SFML_scratchPad)
 
 set(PROJECT_BINARY_DIR "${PROJECT_SOURCE_DIR}/build")
 set(PROJECT_SOURCE_DIR "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}/src")
