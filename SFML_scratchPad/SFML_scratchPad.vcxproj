@@ -101,7 +101,8 @@ mkdir $(OutputPath)resources
 copy $(SolutionDir)resources\*.* $(OutputPath)resources
 mkdir $(OutputPath)resources\levels
 copy $(SolutionDir)resources\levels\*.* $(OutputPath)resources\levels
-
+mkdir $(OutputPath)resources\audio
+copy $(SolutionDir)resources\audio\*.* $(OutputPath)resources\audio
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -195,6 +196,13 @@ copy $(SolutionDir)resources\levels\*.* $(OutputPath)resources\levels
     <ClInclude Include="NoCoinState.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="WonState.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\audio\223241__rap2h__8-l-antre-du-diable.wav" />
+    <Media Include="resources\audio\341695__projectsu012__coins-1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\audio\audioCredits.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
