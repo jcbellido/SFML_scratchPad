@@ -2,10 +2,10 @@
 
 #include "GameState.h"
 
-class NoCoinState : public GameState
+class LostState : public GameState
 {
 public:
-	NoCoinState ( Game * game );
+	LostState ( Game * game );
 
 	void InsertCoin ();
 	void PressButton ();
@@ -17,11 +17,13 @@ public:
 
 	void PreEnter() override;
 
-protected:
-	sf::Text m_text;
-	sf::Sprite m_sprite;
-	bool m_showInsertCoin;
-
 private:
 	void UpdateText();
+
+	int m_remainingSeconds;
+
+	sf::Time m_timeBuffer;
+
+	sf::Text m_textBanner;
+	sf::Text m_textCounter;
 };

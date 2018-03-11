@@ -21,6 +21,11 @@ public:
 
 	sf::Vector2u GetVideoSize();
 
+	void InsertCoin();
+	bool ConsumeCoin();
+	// TODO?: A coin and a credit are not neccessarily the same
+	int CurrentCoins();
+
 private:
 	void InitializeGameStates();
 	void LoadSharedResources();
@@ -28,8 +33,11 @@ private:
 	sf::RenderWindow m_window;
 	GameState * m_currentState;
 	std::array< GameState *, GameState::Count > m_states;
-
+	
+	// This is not even funny
 	sf::Font m_font;
 	sf::Texture m_logo;
 	sf::Texture m_texture;
+
+	int m_coinsInserted = 0;	
 };

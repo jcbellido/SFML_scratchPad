@@ -138,7 +138,9 @@ copy $(SolutionDir)resources\*.* $(OutputPath)resources</Command>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStatesImplementation.cpp" />
+    <ClCompile Include="GetReadyState.cpp" />
     <ClCompile Include="graphicsModule.cpp" />
+    <ClCompile Include="LostState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NoCoinState.cpp" />
     <ClCompile Include="src\sfml_main.cpp">
@@ -167,7 +169,9 @@ copy $(SolutionDir)resources\*.* $(OutputPath)resources</Command>
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStates.h" />
     <ClInclude Include="GameStatesImplementation.h" />
+    <ClInclude Include="GetReadyState.h" />
     <ClInclude Include="GraphicsUtils.h" />
+    <ClInclude Include="LostState.h" />
     <ClInclude Include="NoCoinState.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>

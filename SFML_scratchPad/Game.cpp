@@ -26,10 +26,12 @@ void Game::LoadSharedResources ()
 		throw std::runtime_error ( "Unable to load: " + filePath );
 }
 
-Game::Game () : m_window ( sf::VideoMode ( 640, 480 ), "Packitty" )
+Game::Game () : m_window ( sf::VideoMode ( 640, 480 ), "Packitty" ),
+				m_coinsInserted( 0 )
 {
 	LoadSharedResources ();
 	InitializeGameStates ();
+	// Change me ...
 	m_currentState = m_states[ GameState::NoCoin ];
 	m_currentState->PreEnter();
 }
@@ -58,14 +60,17 @@ void Game::Run ()
 				m_window.close ();
 			}
 
-			if ( event.type == sf::Event::KeyPressed )
+			if ( event.type == sf::Event::KeyReleased )
 			{
 				if ( event.key.code == sf::Keyboard::I )
 					m_currentState->InsertCoin ();
 
 				if ( event.key.code == sf::Keyboard::S )
 					m_currentState->PressButton ();
+			}
 
+			if ( event.type == sf::Event::KeyPressed )
+			{
 				if ( event.key.code == sf::Keyboard::Left )
 					m_currentState->MoveStick ( sf::Vector2i ( -1, 0 ) );
 
@@ -114,4 +119,24 @@ sf::Texture & Game::GetLogo ()
 sf::Texture & Game::GetTexture ()
 {
 	return m_texture;
+}
+
+void Game::InsertCoin()
+{
+	m_coinsInserted ++;
+}
+
+bool Game::ConsumeCoin()
+{
+	if( m_coinsInserted > 0)
+	{
+		m_coinsInserted --;
+		return true;
+	}
+	return false;
+}
+
+int Game::CurrentCoins()
+{
+	return m_coinsInserted;
 }

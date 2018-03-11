@@ -54,6 +54,12 @@
     <ClCompile Include="NoCoinState.cpp">
       <Filter>03_shaping\states</Filter>
     </ClCompile>
+    <ClCompile Include="GetReadyState.cpp">
+      <Filter>03_shaping\states</Filter>
+    </ClCompile>
+    <ClCompile Include="LostState.cpp">
+      <Filter>03_shaping\states</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\cute_image.jpg">
@@ -102,6 +108,12 @@
       <Filter>03_shaping\states</Filter>
     </ClInclude>
     <ClInclude Include="GameStates.h">
+      <Filter>03_shaping\states</Filter>
+    </ClInclude>
+    <ClInclude Include="GetReadyState.h">
+      <Filter>03_shaping\states</Filter>
+    </ClInclude>
+    <ClInclude Include="LostState.h">
       <Filter>03_shaping\states</Filter>
     </ClInclude>
   </ItemGroup>
