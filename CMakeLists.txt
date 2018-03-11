@@ -11,6 +11,8 @@ set(REQUIRED_SFML_MODULES
   system
 )
 
+add_definitions("-std=c++11")
+
 # Enable debug symbols by default
 # must be done before project() statement
 if(NOT CMAKE_BUILD_TYPE)
@@ -21,23 +23,8 @@ endif()
 set(ENV{SFML_ROOT_DIR} "${CMAKE_CURRENT_LIST_DIR}/sfml")
 set(ENV{SFML_BUILD_DIR} "${CMAKE_CURRENT_LIST_DIR}/sfml_build")
 
-# determine arguments for SFML compilation
-if (APPLE)
-  set(SFML_CMAKE_ARGS 
-      "-G 'Unix Makefiles'"
-      "-DCMAKE_OSX_ARCHITECTURES='i386;x86_64'"
-      "-DCMAKE_CXX_COMPILER='/usr/bin/clang++'"
-      "-DCMAKE_C_COMPILER='/usr/bin/clang'"
-      "-DSFML_BUILD_FRAMEWORKS='OFF'"
-      "-DCMAKE_CXX_FLAGS='-stdlib=libc++'"
-      "-DCMAKE_C_FLAGS='-stdlib=libc++'"
-      "${SFML_ROOT_DIR}")
-elseif(WIN32)
-  set(SFML_CMAKE_ARGS "")
-endif()
-
 set(PROJECT_BINARY_DIR "${PROJECT_SOURCE_DIR}/build")
-set(PROJECT_SOURCE_DIR "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}/src")
+set(PROJECT_SOURCE_DIR "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}")
 
 # Set version information in a config.h file
 set(SFML_scratchPad_VERSION_MAJOR 1)
@@ -46,6 +33,7 @@ configure_file(
   "${PROJECT_SOURCE_DIR}/config.h.in"
   "${PROJECT_BINARY_DIR}/config.h"
   )
+include_directories("${PROJECT_SOURCE_DIR}")
 include_directories("${PROJECT_BINARY_DIR}")
 
 # Define sources and executable

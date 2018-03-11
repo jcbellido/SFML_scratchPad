@@ -296,3 +296,4 @@ CPackConfig.cmake
 CPackSourceConfig.cmake
 sfml_build/
 build/
+.vscode/
