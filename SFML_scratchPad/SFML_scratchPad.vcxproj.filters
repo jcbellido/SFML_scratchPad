@@ -78,6 +78,15 @@
     <ClCompile Include="Dot.cpp">
       <Filter>entities</Filter>
     </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>entities</Filter>
+    </ClCompile>
+    <ClCompile Include="PacWoman.cpp">
+      <Filter>entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\cute_image.jpg">
@@ -156,6 +165,15 @@
       <Filter>maze</Filter>
     </ClInclude>
     <ClInclude Include="Dot.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="PacWoman.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
       <Filter>entities</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,7 +2,8 @@
 #include "Game.h"
 #include "GraphicsUtils.h"
 
-PlayingState::PlayingState ( Game * game ) : GameState( game ) 
+PlayingState::PlayingState ( Game * game ) : GameState( game ),
+	m_maze( game->GetTexture() )
 { 
 	m_maze.LoadLevel( "level" );
 }
