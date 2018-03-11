@@ -24,6 +24,17 @@ void Game::LoadSharedResources ()
 	filePath = "resources/texture.png";
 	if ( !m_texture.loadFromFile ( filePath ) )
 		throw std::runtime_error ( "Unable to load: " + filePath );
+
+	filePath = "resources/audio/223241__rap2h__8-l-antre-du-diable.wav";
+	if( !m_music.openFromFile( filePath ) )
+		throw std::runtime_error ( "Unable to load: " + filePath );
+
+	filePath = "resources/audio/341695__projectsu012__coins-1.wav";
+	if( !m_soundCoinBuffer.loadFromFile( filePath ) )
+		throw std::runtime_error ( "Unable to load: " + filePath );
+
+	m_soundCoin.setBuffer( m_soundCoinBuffer );
+
 }
 
 Game::Game () : m_window ( sf::VideoMode ( 640, 480 ), "Packitty" ),
@@ -34,6 +45,7 @@ Game::Game () : m_window ( sf::VideoMode ( 640, 480 ), "Packitty" ),
 	// Change me ...
 	m_currentState = m_states[ GameState::NoCoin ];
 	m_currentState->PreEnter();
+	m_music.play();
 }
 
 Game::~Game ()
@@ -63,10 +75,14 @@ void Game::Run ()
 			if ( event.type == sf::Event::KeyReleased )
 			{
 				if ( event.key.code == sf::Keyboard::I )
+				{
 					m_currentState->InsertCoin ();
-
+					m_soundCoin.play();
+				}
 				if ( event.key.code == sf::Keyboard::S )
+				{
 					m_currentState->PressButton ();
+				}
 			}
 
 			if ( event.type == sf::Event::KeyPressed )

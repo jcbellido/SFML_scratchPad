@@ -1,5 +1,6 @@
 #pragma once
 
+#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <array>
@@ -39,5 +40,8 @@ private:
 	sf::Texture m_logo;
 	sf::Texture m_texture;
 
+	sf::Music m_music;
+	sf::SoundBuffer m_soundCoinBuffer;
+	sf::Sound m_soundCoin;
 	int m_coinsInserted = 0;	
 };

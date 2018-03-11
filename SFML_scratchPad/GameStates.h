@@ -3,4 +3,5 @@
 #include "NoCoinState.h"
 #include "GetReadyState.h"
 #include "LostState.h"
-#include "GameStatesImplementation.h"
+#include "WonState.h"
+#include "PlayingState.h"

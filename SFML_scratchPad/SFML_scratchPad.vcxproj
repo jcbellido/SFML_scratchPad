@@ -98,7 +98,12 @@
     <PostBuildEvent>
       <Command>copy $(SolutionDir)..\sfml\lib\x64\Debug\*.dll $(OutputPath)
 mkdir $(OutputPath)resources
-copy $(SolutionDir)resources\*.* $(OutputPath)resources</Command>
+copy $(SolutionDir)resources\*.* $(OutputPath)resources
+mkdir $(OutputPath)resources\levels
+copy $(SolutionDir)resources\levels\*.* $(OutputPath)resources\levels
+mkdir $(OutputPath)resources\audio
+copy $(SolutionDir)resources\audio\*.* $(OutputPath)resources\audio
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -135,9 +140,14 @@ copy $(SolutionDir)resources\*.* $(OutputPath)resources</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Dot.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="GameStatesImplementation.cpp" />
+    <ClCompile Include="Maze.cpp" />
+    <ClCompile Include="PacWoman.cpp" />
+    <ClCompile Include="PlayingState.cpp" />
     <ClCompile Include="GetReadyState.cpp" />
     <ClCompile Include="graphicsModule.cpp" />
     <ClCompile Include="LostState.cpp" />
@@ -148,11 +158,17 @@ copy $(SolutionDir)resources\*.* $(OutputPath)resources</Command>
     </ClCompile>
     <ClCompile Include="systemModule.cpp" />
     <ClCompile Include="windowModule.cpp" />
+    <ClCompile Include="WonState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\cute_image.jpg">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
     </Image>
+    <Image Include="resources\levels\large-level.png" />
+    <Image Include="resources\levels\large.png" />
+    <Image Include="resources\levels\level.png" />
+    <Image Include="resources\levels\medium.png" />
+    <Image Include="resources\levels\small.png" />
     <Image Include="resources\logo.png" />
     <Image Include="resources\Pac Woman.png" />
     <Image Include="resources\texture.png" />
@@ -165,15 +181,28 @@ copy $(SolutionDir)resources\*.* $(OutputPath)resources</Command>
     <Font Include="resources\sansation.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animator.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="Dot.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStates.h" />
-    <ClInclude Include="GameStatesImplementation.h" />
+    <ClInclude Include="Maze.h" />
+    <ClInclude Include="PacWoman.h" />
+    <ClInclude Include="PlayingState.h" />
     <ClInclude Include="GetReadyState.h" />
     <ClInclude Include="GraphicsUtils.h" />
     <ClInclude Include="LostState.h" />
     <ClInclude Include="NoCoinState.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="WonState.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\audio\223241__rap2h__8-l-antre-du-diable.wav" />
+    <Media Include="resources\audio\341695__projectsu012__coins-1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\audio\audioCredits.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

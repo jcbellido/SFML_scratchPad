@@ -25,6 +25,18 @@
     <Filter Include="03_shaping\states">
       <UniqueIdentifier>{517f816a-5f21-4ba4-8d12-0944cecfde0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\levels">
+      <UniqueIdentifier>{16fb56ef-bed5-4106-ab82-b216ff7f9b5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="maze">
+      <UniqueIdentifier>{690cb6b1-f339-4dde-971c-cd7105881430}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="entities">
+      <UniqueIdentifier>{e8a75ff4-559e-4510-8642-61f060b0a40f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\audio">
+      <UniqueIdentifier>{24899bf1-ffb7-4eb6-aeae-fec1165089aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="systemModule.cpp">
@@ -48,9 +60,6 @@
     <ClCompile Include="src\sfml_main.cpp">
       <Filter>ProvingItWorks</Filter>
     </ClCompile>
-    <ClCompile Include="GameStatesImplementation.cpp">
-      <Filter>03_shaping</Filter>
-    </ClCompile>
     <ClCompile Include="NoCoinState.cpp">
       <Filter>03_shaping\states</Filter>
     </ClCompile>
@@ -59,6 +68,27 @@
     </ClCompile>
     <ClCompile Include="LostState.cpp">
       <Filter>03_shaping\states</Filter>
+    </ClCompile>
+    <ClCompile Include="WonState.cpp">
+      <Filter>03_shaping\states</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayingState.cpp">
+      <Filter>03_shaping\states</Filter>
+    </ClCompile>
+    <ClCompile Include="Maze.cpp">
+      <Filter>maze</Filter>
+    </ClCompile>
+    <ClCompile Include="Dot.cpp">
+      <Filter>entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>entities</Filter>
+    </ClCompile>
+    <ClCompile Include="PacWoman.cpp">
+      <Filter>entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +103,21 @@
     </Image>
     <Image Include="resources\texture.png">
       <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\levels\large.png">
+      <Filter>Resource Files\levels</Filter>
+    </Image>
+    <Image Include="resources\levels\large-level.png">
+      <Filter>Resource Files\levels</Filter>
+    </Image>
+    <Image Include="resources\levels\level.png">
+      <Filter>Resource Files\levels</Filter>
+    </Image>
+    <Image Include="resources\levels\medium.png">
+      <Filter>Resource Files\levels</Filter>
+    </Image>
+    <Image Include="resources\levels\small.png">
+      <Filter>Resource Files\levels</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -98,9 +143,6 @@
     <ClInclude Include="GameState.h">
       <Filter>03_shaping</Filter>
     </ClInclude>
-    <ClInclude Include="GameStatesImplementation.h">
-      <Filter>03_shaping</Filter>
-    </ClInclude>
     <ClInclude Include="GraphicsUtils.h">
       <Filter>03_shaping</Filter>
     </ClInclude>
@@ -116,5 +158,39 @@
     <ClInclude Include="LostState.h">
       <Filter>03_shaping\states</Filter>
     </ClInclude>
+    <ClInclude Include="WonState.h">
+      <Filter>03_shaping\states</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayingState.h">
+      <Filter>03_shaping\states</Filter>
+    </ClInclude>
+    <ClInclude Include="Maze.h">
+      <Filter>maze</Filter>
+    </ClInclude>
+    <ClInclude Include="Dot.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="PacWoman.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\audio\223241__rap2h__8-l-antre-du-diable.wav">
+      <Filter>Resource Files\audio</Filter>
+    </Media>
+    <Media Include="resources\audio\341695__projectsu012__coins-1.wav">
+      <Filter>Resource Files\audio</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\audio\audioCredits.txt">
+      <Filter>Resource Files\audio</Filter>
+    </Text>
   </ItemGroup>
 </Project>
