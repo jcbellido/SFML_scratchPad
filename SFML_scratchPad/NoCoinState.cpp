@@ -5,8 +5,7 @@
 #include "GraphicsUtils.h"
 
 NoCoinState::NoCoinState ( Game * game ) : GameState( game ), 
-										   m_showInsertCoin( true ),
-										   m_coinsInserted( 0 )
+										   m_showInsertCoin( true )
 { 
 	m_sprite.setTexture( game->GetLogo() );
 	centerOrigin( m_sprite );
@@ -21,14 +20,15 @@ NoCoinState::NoCoinState ( Game * game ) : GameState( game ),
 
 void NoCoinState::UpdateText()
 {
-	if ( m_coinsInserted == 0 )
+	Game * game = GetGame();
+	if ( game->CurrentCoins() == 0 )
 	{
 		m_text.setString ( "Insert coin!" );
 		centerOrigin( m_text );
 	}
 	else
 	{
-		m_text.setString( "Credits: " + std::to_string( m_coinsInserted ) + " Press start" );
+		m_text.setString( "Credits: " + std::to_string( game->CurrentCoins() ) + " Press start" );
 		centerOrigin( m_text );
 	}
 }
@@ -40,15 +40,14 @@ void NoCoinState::PreEnter ()
 
 void NoCoinState::InsertCoin () 
 {
-	m_coinsInserted ++;
+	GetGame()->InsertCoin();
 	UpdateText();
 }
 
 void NoCoinState::PressButton () 
 {
-	if( m_coinsInserted > 0 )
+	if( GetGame()->ConsumeCoin() )
 	{
-		m_coinsInserted --;
 		UpdateText();
 		GetGame()->ChangeGameState( GameState::GetReady );
 	}
@@ -63,7 +62,7 @@ void NoCoinState::Update ( sf::Time delta )
 	static sf::Time timeBuffer = sf::Time::Zero;
 	timeBuffer += delta;
 	
-	if( ( m_coinsInserted == 0 ) && ( timeBuffer >= sf::seconds( 0.75 ) ) )
+	if( ( GetGame()->CurrentCoins() == 0 ) && ( timeBuffer >= sf::seconds( 0.75 ) ) )
 	{
 		m_showInsertCoin = ! m_showInsertCoin;
 		timeBuffer = sf::Time::Zero;
@@ -74,7 +73,7 @@ void NoCoinState::Draw ( sf::RenderWindow & window )
 {
 	window.draw( m_sprite );
 
-	if( m_coinsInserted > 0 )
+	if( GetGame()->CurrentCoins() > 0 )
 	{
 		window.draw( m_text );
 	}
