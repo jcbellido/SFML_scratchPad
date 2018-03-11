@@ -25,6 +25,7 @@ set(ENV{SFML_BUILD_DIR} "${CMAKE_CURRENT_LIST_DIR}/sfml_build")
 
 set(PROJECT_BINARY_DIR "${PROJECT_SOURCE_DIR}/build")
 set(PROJECT_SOURCE_DIR "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}")
+set(PROJECT_RESOURCE_DIR "${PROJECT_SOURCE_DIR}/resources")
 
 # Set version information in a config.h file
 set(SFML_scratchPad_VERSION_MAJOR 1)
@@ -38,7 +39,15 @@ include_directories("${PROJECT_BINARY_DIR}")
 
 # Define sources and executable
 file(GLOB SOURCES "${PROJECT_SOURCE_DIR}/*.cpp")
+file(GLOB MAC_SRC "${PROJECT_SOURCE_DIR}/*.mm")
+set(SOURCES ${SOURCES} ${PROJECT_RESOURCE_DIR} ${MAC_SRC})
 add_executable(${PROJECT_NAME} ${SOURCES})
+
+# Adding MAC stuff
+if(APPLE)
+  message("ALAAAAAAAARM IF APPLE")
+  target_link_libraries(${PROJECT_NAME} "-framework CoreFoundation")
+endif()
 
 # Detect and add SFML
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
@@ -48,6 +57,11 @@ if(SFML_FOUND)
   include_directories(${SFML_INCLUDE_DIR})
   target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES}) 
 endif()
+
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD 
+                    COMMAND ${CMAKE_COMMAND} -E copy_directory
+                    ${PROJECT_SOURCE_DIR}/resources
+                    ${PROJECT_BINARY_DIR}/resources)
 
 # OpenGL
 find_package(OpenGL REQUIRED)

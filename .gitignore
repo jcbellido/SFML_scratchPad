@@ -295,5 +295,6 @@ cmake_install.cmake
 CPackConfig.cmake
 CPackSourceConfig.cmake
 sfml_build/
+sfml_ex/
 build/
 .vscode/
