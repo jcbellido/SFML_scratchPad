@@ -32,7 +32,7 @@ Game::Game () : m_window ( sf::VideoMode ( 640, 480 ), "Packitty" ),
 	LoadSharedResources ();
 	InitializeGameStates ();
 	// Change me ...
-	m_currentState = m_states[ GameState::NoCoin ];
+	m_currentState = m_states[ GameState::Playing ];
 	m_currentState->PreEnter();
 }
 
