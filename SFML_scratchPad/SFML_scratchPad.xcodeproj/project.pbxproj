@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6AF174B5205846E3000D9E54 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF17497205846DF000D9E54 /* Game.cpp */; };
+		6AF174B6205846E3000D9E54 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF17498205846E0000D9E54 /* main.cpp */; };
+		6AF174B7205846E3000D9E54 /* Animator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF1749A205846E0000D9E54 /* Animator.cpp */; };
+		6AF174B8205846E3000D9E54 /* graphicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF1749C205846E0000D9E54 /* graphicsModule.cpp */; };
+		6AF174B9205846E3000D9E54 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF1749E205846E0000D9E54 /* GameState.cpp */; };
+		6AF174BA205846E3000D9E54 /* Maze.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF1749F205846E0000D9E54 /* Maze.cpp */; };
+		6AF174BB205846E3000D9E54 /* windowModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF174A0205846E0000D9E54 /* windowModule.cpp */; };
+		6AF174BC205846E3000D9E54 /* PacWoman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF174A4205846E1000D9E54 /* PacWoman.cpp */; };
+		6AF174BD205846E3000D9E54 /* LostState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF174A6205846E1000D9E54 /* LostState.cpp */; };
+		6AF174BE205846E3000D9E54 /* GetReadyState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF174A7205846E1000D9E54 /* GetReadyState.cpp */; };
+		6AF174BF205846E3000D9E54 /* PlayingState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF174A8205846E1000D9E54 /* PlayingState.cpp */; };
+		6AF174C0205846E3000D9E54 /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF174AA205846E1000D9E54 /* Dot.cpp */; };
+		6AF174C1205846E3000D9E54 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF174AB205846E1000D9E54 /* Character.cpp */; };
+		6AF174C2205846E3000D9E54 /* NoCoinState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF174AD205846E1000D9E54 /* NoCoinState.cpp */; };
+		6AF174C3205846E3000D9E54 /* systemModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF174AF205846E2000D9E54 /* systemModule.cpp */; };
+		6AF174C4205846E3000D9E54 /* WonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF174B3205846E3000D9E54 /* WonState.cpp */; };
+		6AF174C620584783000D9E54 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6AF174C520584783000D9E54 /* ResourcePath.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6AF17487205846B0000D9E54 /* SFML_scratchPad */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SFML_scratchPad; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AF1748D205846B0000D9E54 /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cute_image.jpg; sourceTree = "<group>"; };
+		6AF1748E205846B0000D9E54 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
+		6AF1748F205846B0000D9E54 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
+		6AF17490205846B0000D9E54 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		6AF17496205846DF000D9E54 /* Dot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dot.h; sourceTree = SOURCE_ROOT; };
+		6AF17497205846DF000D9E54 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = SOURCE_ROOT; };
+		6AF17498205846E0000D9E54 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
+		6AF17499205846E0000D9E54 /* PlayingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingState.h; sourceTree = SOURCE_ROOT; };
+		6AF1749A205846E0000D9E54 /* Animator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animator.cpp; sourceTree = SOURCE_ROOT; };
+		6AF1749B205846E0000D9E54 /* GameStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStates.h; sourceTree = SOURCE_ROOT; };
+		6AF1749C205846E0000D9E54 /* graphicsModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = graphicsModule.cpp; sourceTree = SOURCE_ROOT; };
+		6AF1749D205846E0000D9E54 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = SOURCE_ROOT; };
+		6AF1749E205846E0000D9E54 /* GameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = SOURCE_ROOT; };
+		6AF1749F205846E0000D9E54 /* Maze.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Maze.cpp; sourceTree = SOURCE_ROOT; };
+		6AF174A0205846E0000D9E54 /* windowModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windowModule.cpp; sourceTree = SOURCE_ROOT; };
+		6AF174A1205846E0000D9E54 /* WonState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WonState.h; sourceTree = SOURCE_ROOT; };
+		6AF174A2205846E0000D9E54 /* LostState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LostState.h; sourceTree = SOURCE_ROOT; };
+		6AF174A3205846E0000D9E54 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = SOURCE_ROOT; };
+		6AF174A4205846E1000D9E54 /* PacWoman.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PacWoman.cpp; sourceTree = SOURCE_ROOT; };
+		6AF174A5205846E1000D9E54 /* GetReadyState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetReadyState.h; sourceTree = SOURCE_ROOT; };
+		6AF174A6205846E1000D9E54 /* LostState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LostState.cpp; sourceTree = SOURCE_ROOT; };
+		6AF174A7205846E1000D9E54 /* GetReadyState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetReadyState.cpp; sourceTree = SOURCE_ROOT; };
+		6AF174A8205846E1000D9E54 /* PlayingState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayingState.cpp; sourceTree = SOURCE_ROOT; };
+		6AF174A9205846E1000D9E54 /* resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resource.h; sourceTree = SOURCE_ROOT; };
+		6AF174AA205846E1000D9E54 /* Dot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dot.cpp; sourceTree = SOURCE_ROOT; };
+		6AF174AB205846E1000D9E54 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Character.cpp; sourceTree = SOURCE_ROOT; };
+		6AF174AC205846E1000D9E54 /* NoCoinState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoCoinState.h; sourceTree = SOURCE_ROOT; };
+		6AF174AD205846E1000D9E54 /* NoCoinState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NoCoinState.cpp; sourceTree = SOURCE_ROOT; };
+		6AF174AE205846E2000D9E54 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = SOURCE_ROOT; };
+		6AF174AF205846E2000D9E54 /* systemModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = systemModule.cpp; sourceTree = SOURCE_ROOT; };
+		6AF174B0205846E2000D9E54 /* Maze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Maze.h; sourceTree = SOURCE_ROOT; };
+		6AF174B1205846E2000D9E54 /* PacWoman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PacWoman.h; sourceTree = SOURCE_ROOT; };
+		6AF174B2205846E3000D9E54 /* GraphicsUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsUtils.h; sourceTree = SOURCE_ROOT; };
+		6AF174B3205846E3000D9E54 /* WonState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WonState.cpp; sourceTree = SOURCE_ROOT; };
+		6AF174B4205846E3000D9E54 /* Animator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animator.h; sourceTree = SOURCE_ROOT; };
+		6AF174C520584783000D9E54 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = SOURCE_ROOT; };
+		6AF174C72058479C000D9E54 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6AF17485205846B0000D9E54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6AF1747F205846B0000D9E54 = {
+			isa = PBXGroup;
+			children = (
+				6AF17489205846B0000D9E54 /* SFML_scratchPad */,
+				6AF17488205846B0000D9E54 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6AF17488205846B0000D9E54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6AF17487205846B0000D9E54 /* SFML_scratchPad */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6AF17489205846B0000D9E54 /* SFML_scratchPad */ = {
+			isa = PBXGroup;
+			children = (
+				6AF1749D205846E0000D9E54 /* Game.h */,
+				6AF1749E205846E0000D9E54 /* GameState.cpp */,
+				6AF174AE205846E2000D9E54 /* GameState.h */,
+				6AF1749B205846E0000D9E54 /* GameStates.h */,
+				6AF174A7205846E1000D9E54 /* GetReadyState.cpp */,
+				6AF174A5205846E1000D9E54 /* GetReadyState.h */,
+				6AF1749C205846E0000D9E54 /* graphicsModule.cpp */,
+				6AF174B2205846E3000D9E54 /* GraphicsUtils.h */,
+				6AF174A6205846E1000D9E54 /* LostState.cpp */,
+				6AF174A2205846E0000D9E54 /* LostState.h */,
+				6AF1749A205846E0000D9E54 /* Animator.cpp */,
+				6AF174B4205846E3000D9E54 /* Animator.h */,
+				6AF174AB205846E1000D9E54 /* Character.cpp */,
+				6AF174A3205846E0000D9E54 /* Character.h */,
+				6AF174AA205846E1000D9E54 /* Dot.cpp */,
+				6AF17496205846DF000D9E54 /* Dot.h */,
+				6AF17497205846DF000D9E54 /* Game.cpp */,
+				6AF17498205846E0000D9E54 /* main.cpp */,
+				6AF1749F205846E0000D9E54 /* Maze.cpp */,
+				6AF174B0205846E2000D9E54 /* Maze.h */,
+				6AF174AD205846E1000D9E54 /* NoCoinState.cpp */,
+				6AF174AC205846E1000D9E54 /* NoCoinState.h */,
+				6AF174A4205846E1000D9E54 /* PacWoman.cpp */,
+				6AF174B1205846E2000D9E54 /* PacWoman.h */,
+				6AF174A8205846E1000D9E54 /* PlayingState.cpp */,
+				6AF17499205846E0000D9E54 /* PlayingState.h */,
+				6AF174A9205846E1000D9E54 /* resource.h */,
+				6AF174AF205846E2000D9E54 /* systemModule.cpp */,
+				6AF174A0205846E0000D9E54 /* windowModule.cpp */,
+				6AF174B3205846E3000D9E54 /* WonState.cpp */,
+				6AF174A1205846E0000D9E54 /* WonState.h */,
+				6AF1748C205846B0000D9E54 /* Resources */,
+				6AF174C520584783000D9E54 /* ResourcePath.mm */,
+				6AF174C72058479C000D9E54 /* ResourcePath.hpp */,
+			);
+			path = SFML_scratchPad;
+			sourceTree = "<group>";
+		};
+		6AF1748C205846B0000D9E54 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6AF1748D205846B0000D9E54 /* cute_image.jpg */,
+				6AF1748E205846B0000D9E54 /* nice_music.ogg */,
+				6AF1748F205846B0000D9E54 /* sansation.ttf */,
+				6AF17490205846B0000D9E54 /* icon.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6AF17486205846B0000D9E54 /* SFML_scratchPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AF17493205846B0000D9E54 /* Build configuration list for PBXNativeTarget "SFML_scratchPad" */;
+			buildPhases = (
+				6AF17484205846B0000D9E54 /* Sources */,
+				6AF17485205846B0000D9E54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SFML_scratchPad;
+			productName = SFML_scratchPad;
+			productReference = 6AF17487205846B0000D9E54 /* SFML_scratchPad */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6AF17480205846B0000D9E54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Ignacio Fernandez";
+				TargetAttributes = {
+					6AF17486205846B0000D9E54 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6AF17483205846B0000D9E54 /* Build configuration list for PBXProject "SFML_scratchPad" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6AF1747F205846B0000D9E54;
+			productRefGroup = 6AF17488205846B0000D9E54 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6AF17486205846B0000D9E54 /* SFML_scratchPad */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6AF17484205846B0000D9E54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AF174BC205846E3000D9E54 /* PacWoman.cpp in Sources */,
+				6AF174B7205846E3000D9E54 /* Animator.cpp in Sources */,
+				6AF174B9205846E3000D9E54 /* GameState.cpp in Sources */,
+				6AF174C2205846E3000D9E54 /* NoCoinState.cpp in Sources */,
+				6AF174B8205846E3000D9E54 /* graphicsModule.cpp in Sources */,
+				6AF174BD205846E3000D9E54 /* LostState.cpp in Sources */,
+				6AF174BA205846E3000D9E54 /* Maze.cpp in Sources */,
+				6AF174BE205846E3000D9E54 /* GetReadyState.cpp in Sources */,
+				6AF174B5205846E3000D9E54 /* Game.cpp in Sources */,
+				6AF174C620584783000D9E54 /* ResourcePath.mm in Sources */,
+				6AF174C1205846E3000D9E54 /* Character.cpp in Sources */,
+				6AF174B6205846E3000D9E54 /* main.cpp in Sources */,
+				6AF174C3205846E3000D9E54 /* systemModule.cpp in Sources */,
+				6AF174BF205846E3000D9E54 /* PlayingState.cpp in Sources */,
+				6AF174C0205846E3000D9E54 /* Dot.cpp in Sources */,
+				6AF174C4205846E3000D9E54 /* WonState.cpp in Sources */,
+				6AF174BB205846E3000D9E54 /* windowModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6AF17491205846B0000D9E54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = DYLIBS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "$(SFML_LINK_PREFIX) sfml-network$(SFML_LINK_SUFFIX)";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Debug;
+		};
+		6AF17492205846B0000D9E54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = DYLIBS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "$(SFML_LINK_PREFIX) sfml-network$(SFML_LINK_SUFFIX)";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Release;
+		};
+		6AF17494205846B0000D9E54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43S77MG2MK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6AF17495205846B0000D9E54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43S77MG2MK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6AF17483205846B0000D9E54 /* Build configuration list for PBXProject "SFML_scratchPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AF17491205846B0000D9E54 /* Debug */,
+				6AF17492205846B0000D9E54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AF17493205846B0000D9E54 /* Build configuration list for PBXNativeTarget "SFML_scratchPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AF17494205846B0000D9E54 /* Debug */,
+				6AF17495205846B0000D9E54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6AF17480205846B0000D9E54 /* Project object */;
+}
