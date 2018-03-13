@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "Dot.h"
 #include "Maze.h"
 
