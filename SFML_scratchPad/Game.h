@@ -29,7 +29,7 @@ public:
 
 private:
 	void InitializeGameStates();
-	void LoadSharedResources();
+    void LoadSharedResources();
 
 	sf::RenderWindow m_window;
 	GameState * m_currentState;

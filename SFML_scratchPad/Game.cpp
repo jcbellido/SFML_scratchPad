@@ -1,5 +1,4 @@
 #include "Game.h"
-
 #include "GameStates.h"
 
 void Game::InitializeGameStates ()
@@ -13,34 +12,33 @@ void Game::InitializeGameStates ()
 
 void Game::LoadSharedResources ()
 {
-	sf::String filePath = "resources/font.ttf";
-	if ( !m_font.loadFromFile ( filePath ) )
-		throw std::runtime_error ( "Unable to load: " + filePath );
-
-	filePath = "resources/logo.png";
-	if ( !m_logo.loadFromFile ( filePath ) )
-		throw std::runtime_error ( "Unable to load: " + filePath );
-
-	filePath = "resources/texture.png";
-	if ( !m_texture.loadFromFile ( filePath ) )
-		throw std::runtime_error ( "Unable to load: " + filePath );
-
-	filePath = "resources/audio/223241__rap2h__8-l-antre-du-diable.wav";
-	if( !m_music.openFromFile( filePath ) )
-		throw std::runtime_error ( "Unable to load: " + filePath );
-
-	filePath = "resources/audio/341695__projectsu012__coins-1.wav";
-	if( !m_soundCoinBuffer.loadFromFile( filePath ) )
-		throw std::runtime_error ( "Unable to load: " + filePath );
-
-	m_soundCoin.setBuffer( m_soundCoinBuffer );
-
+    sf::String filePath = "resources/font.ttf";
+    if ( !m_font.loadFromFile ( filePath ) )
+        throw std::runtime_error ( "Unable to load: " + filePath );
+    
+    filePath = "resources/logo.png";
+    if ( !m_logo.loadFromFile ( filePath ) )
+        throw std::runtime_error ( "Unable to load: " + filePath );
+    
+    filePath = "resources/texture.png";
+    if ( !m_texture.loadFromFile ( filePath ) )
+        throw std::runtime_error ( "Unable to load: " + filePath );
+    
+    filePath = "resources/audio/223241__rap2h__8-l-antre-du-diable.wav";
+    if( !m_music.openFromFile( filePath ) )
+        throw std::runtime_error ( "Unable to load: " + filePath );
+    
+    filePath = "resources/audio/341695__projectsu012__coins-1.wav";
+    if( !m_soundCoinBuffer.loadFromFile( filePath ) )
+        throw std::runtime_error ( "Unable to load: " + filePath );
+    
+    m_soundCoin.setBuffer( m_soundCoinBuffer );
 }
 
 Game::Game () : m_window ( sf::VideoMode ( 640, 480 ), "Packitty" ),
 				m_coinsInserted( 0 )
 {
-	LoadSharedResources ();
+    LoadSharedResources ();
 	InitializeGameStates ();
 	// Change me ...
 	m_currentState = m_states[ GameState::NoCoin ];
