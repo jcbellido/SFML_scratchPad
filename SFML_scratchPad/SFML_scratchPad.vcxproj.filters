@@ -90,6 +90,12 @@
     <ClCompile Include="Character.cpp">
       <Filter>entities</Filter>
     </ClCompile>
+    <ClCompile Include="Bonus.cpp">
+      <Filter>entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Ghost.cpp">
+      <Filter>entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\cute_image.jpg">
@@ -177,6 +183,12 @@
       <Filter>entities</Filter>
     </ClInclude>
     <ClInclude Include="Character.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Bonus.h">
+      <Filter>entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Ghost.h">
       <Filter>entities</Filter>
     </ClInclude>
   </ItemGroup>

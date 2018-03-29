@@ -141,10 +141,12 @@ copy $(SolutionDir)resources\audio\*.* $(OutputPath)resources\audio
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="Bonus.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Dot.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="Ghost.cpp" />
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="PacWoman.cpp" />
     <ClCompile Include="PlayingState.cpp" />
@@ -182,11 +184,13 @@ copy $(SolutionDir)resources\audio\*.* $(OutputPath)resources\audio
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animator.h" />
+    <ClInclude Include="Bonus.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Dot.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStates.h" />
+    <ClInclude Include="Ghost.h" />
     <ClInclude Include="Maze.h" />
     <ClInclude Include="PacWoman.h" />
     <ClInclude Include="PlayingState.h" />
