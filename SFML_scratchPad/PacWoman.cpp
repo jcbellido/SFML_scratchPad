@@ -6,6 +6,8 @@ PacWoman::PacWoman( sf::Texture & texture ) :	m_visual( texture ),
 {
 	setOrigin( 20, 20 );
 
+	SetSpeed( 32 );
+
 	m_runAnimator.AddFrame( sf::IntRect(  0,  32, 40, 40 ) );
 	m_runAnimator.AddFrame( sf::IntRect(  0,  72, 40, 40 ) );
 

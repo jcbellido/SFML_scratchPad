@@ -35,7 +35,6 @@ sf::Vector2i Character::GetDirection() const
 
 void Character::Update( sf::Time delta )
 {
-
 	sf::Vector2f pixelPosition = getPosition();
 
 	float pixelTraveled = GetSpeed() * delta.asSeconds();

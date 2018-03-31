@@ -104,7 +104,7 @@ void Game::Run ()
 
 		// Silly implementation 
 		sf::Time elapsed = frameClock.restart ();
-		if ( elapsed > sf::milliseconds ( 33 ) )
+		if ( elapsed.asSeconds() > sf::milliseconds( 33 ).asSeconds() )
 		{
 			elapsed = sf::milliseconds ( 33 );
 		}
