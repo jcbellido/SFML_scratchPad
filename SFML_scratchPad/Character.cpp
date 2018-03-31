@@ -62,7 +62,7 @@ void Character::Update( sf::Time delta )
 		}
 	}
 
-	if ( ! m_maze->isWall( cellPosition + m_currentDirection ) &&
+	if ( ! m_maze->isWall( cellPosition + m_nextDirection ) &&
 		m_currentDirection != m_nextDirection )
 	{
 		if( 
