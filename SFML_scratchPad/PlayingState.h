@@ -18,6 +18,7 @@ public:
 	void HandleInput ();
 	void Update ( sf::Time delta );
 	void Draw ( sf::RenderWindow & window );
+
 private: 
 	Maze m_maze;
 	PacWoman * m_packWoman;
