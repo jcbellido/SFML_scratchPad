@@ -7,7 +7,14 @@ Ghost::Ghost( sf::Texture & texture )
 {
 	setOrigin( 20, 20 );
 
+	m_strongAnimator.AddFrame( sf::IntRect( 40, 32, 40, 40 ) );
+	m_strongAnimator.AddFrame( sf::IntRect( 80, 32, 40, 40 ) );
 
+	m_weakAnimator.AddFrame( sf::IntRect( 40, 72, 40, 40 ) );
+	m_weakAnimator.AddFrame( sf::IntRect( 80, 72, 40, 40 ) );
+
+	m_strongAnimator.Play( sf::seconds( 0.25 ), true );
+	m_weakAnimator.Play( sf::seconds( 1 ), true );
 }
 
 void Ghost::SetWeak( sf::Time duration )
@@ -25,4 +32,30 @@ void Ghost::draw ( sf::RenderTarget & target, sf::RenderStates states ) const
 {
 	states.transform *= getTransform();
 	target.draw( m_visual, states );
+}
+
+void Ghost::Update( sf::Time delta )
+{
+	if( IsWeak() )
+	{
+		m_weaknessDuration -= delta;
+
+		if( m_weaknessDuration <= sf::Time::Zero )
+		{
+			m_isWeak = false;
+			m_strongAnimator.Play( sf::seconds( 0.25 ), true );
+		}
+	}
+
+	if( IsWeak() )
+	{
+		m_weakAnimator.Update( delta );
+		m_weakAnimator.Animate( m_visual );
+	}
+	else
+	{
+		m_strongAnimator.Update( delta );
+		m_strongAnimator.Animate( m_visual );
+	}
+	Character::Update( delta );
 }

@@ -9,15 +9,15 @@ PacWoman::PacWoman( sf::Texture & texture ) :	m_visual( texture ),
 	m_runAnimator.AddFrame( sf::IntRect(  0,  32, 40, 40 ) );
 	m_runAnimator.AddFrame( sf::IntRect(  0,  72, 40, 40 ) );
 
-    m_dieAnimator.AddFrame(sf::IntRect(0, 32, 40, 40));
-    m_dieAnimator.AddFrame(sf::IntRect(0, 72, 40, 40));
-    m_dieAnimator.AddFrame(sf::IntRect(0, 112, 40, 40));
-    m_dieAnimator.AddFrame(sf::IntRect(40, 112, 40, 40));
-    m_dieAnimator.AddFrame(sf::IntRect(80, 112, 40, 40));
+    m_dieAnimator.AddFrame(sf::IntRect(  0,  32, 40, 40));
+    m_dieAnimator.AddFrame(sf::IntRect(  0,  72, 40, 40));
+    m_dieAnimator.AddFrame(sf::IntRect(  0, 112, 40, 40));
+    m_dieAnimator.AddFrame(sf::IntRect( 40, 112, 40, 40));
+    m_dieAnimator.AddFrame(sf::IntRect( 80, 112, 40, 40));
     m_dieAnimator.AddFrame(sf::IntRect(120, 112, 40, 40));
     m_dieAnimator.AddFrame(sf::IntRect(160, 112, 40, 40));
 
-	m_runAnimator.Play( sf::seconds( 0.25f ), true );
+	m_runAnimator.Play( sf::seconds( 0.75f ), true );
 }
 
 void PacWoman::Die()
@@ -67,4 +67,5 @@ void PacWoman::Update( sf::Time delta )
 			m_isDead = true;
 		}
 	}
+	Character::Update( delta );
 }

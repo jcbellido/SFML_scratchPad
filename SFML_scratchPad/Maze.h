@@ -18,6 +18,8 @@ public:
 
 	inline bool isWall( sf::Vector2i position ) const;
 
+	sf::Vector2i GetSize() const;
+
 	sf::Vector2i MapPixelToCell(sf::Vector2f pixel) const;
 	sf::Vector2f MapCellToPixel(sf::Vector2i cell) const;
 

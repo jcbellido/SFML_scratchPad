@@ -206,6 +206,11 @@ bool Maze::isWall ( sf::Vector2i position ) const
 	return m_mazeData [ PositionToIndex ( position ) ] == Wall;
 }
 
+sf::Vector2i Maze::GetSize() const
+{
+	return sf::Vector2i( m_mazeSize.x, m_mazeSize.y );
+}
+
 std::size_t Maze::PositionToIndex ( sf::Vector2i position ) const
 {
 	return position.y * m_mazeSize.x + position.x;
