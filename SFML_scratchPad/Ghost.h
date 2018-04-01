@@ -7,7 +7,8 @@
 class Ghost : public Character
 {
 public:
-	Ghost( sf::Texture & texture );
+	Ghost( std::shared_ptr< CharacterConfiguration > config, 
+		   sf::Texture & texture );
 
 public:
 	enum State

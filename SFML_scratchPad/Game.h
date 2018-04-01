@@ -18,6 +18,7 @@ public:
 
 	std::shared_ptr< sf::Font > GetFont( sf::String key );
 	std::shared_ptr< sf::Texture > GetTexture( sf::String key );
+	std::shared_ptr< CharacterConfiguration > GetCharacterConfig( sf::String key );
 
 	sf::Vector2u GetVideoSize();
 

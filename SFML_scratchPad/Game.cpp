@@ -40,7 +40,7 @@ Game::Game () : m_coinsInserted( 0 ),
 
 	// Change me ...
 	m_currentState = m_states[ GameState::NoCoin ];
-	// m_currentState = m_states[ GameState::Playing ];
+	m_currentState = m_states[ GameState::Playing ];
 
 	m_currentState->PreEnter();
 	// m_music.play();
@@ -122,6 +122,11 @@ std::shared_ptr< sf::Font > Game::GetFont( sf::String key )
 std::shared_ptr< sf::Texture > Game::GetTexture( sf::String key )
 {
 	return m_assetLoader.GetTexture( key );
+}
+
+std::shared_ptr< CharacterConfiguration > Game::GetCharacterConfig( sf::String key )
+{
+	return m_assetLoader.GetCharacterConfig( key );
 }
 
 void Game::InsertCoin()

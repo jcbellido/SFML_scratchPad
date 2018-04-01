@@ -6,7 +6,7 @@
 class PacWoman : public Character
 {
 public:
-	PacWoman( sf::Texture & texture ); 
+	PacWoman( std::shared_ptr< CharacterConfiguration > config, sf::Texture & texture ); 
 	void Die();
 	bool IsDead() const;
 	bool IsDying() const;

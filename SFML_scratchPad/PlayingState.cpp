@@ -7,13 +7,15 @@ PlayingState::PlayingState ( Game * game ) : GameState( game ),
 { 
 	m_maze.LoadLevel( "large-level" );
 
-	m_packWoman = std::make_unique< PacWoman >(  * game->GetTexture("atlas") );
+	m_packWoman = std::make_unique< PacWoman >(   game->GetCharacterConfig( "PackWoman" ), 
+												* game->GetTexture( "atlas" ) );
 	m_packWoman->SetMaze( & m_maze );
 	m_packWoman->setPosition( m_maze.MapCellToPixel( m_maze.getPacWomanPosition() ) );
 
 	for( auto ghostPosition : m_maze.getGhostPositions() )
 	{
-		auto ghost = std::make_shared< Ghost >( * game->GetTexture("atlas") );
+		auto ghost = std::make_shared< Ghost >(   game->GetCharacterConfig( "Ghost" ),
+												* game->GetTexture("atlas") );
 		ghost->SetMaze( & m_maze );
 		ghost->setPosition( m_maze.MapCellToPixel( ghostPosition ) );
 		m_ghosts.push_back( ghost );

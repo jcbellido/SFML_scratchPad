@@ -11,6 +11,17 @@
 #include "nlohmann\json.hpp"
 using json = nlohmann::json;
 
+#include "Animator.h"
+
+class CharacterConfiguration
+{
+public:
+	float Speed;
+	sf::Vector2f Origin;
+	
+	std::map< std::string, Animator > Animators;
+};
+
 class AssetLoader
 {
 public:
@@ -21,6 +32,11 @@ public:
 
 	std::shared_ptr< sf::Font > GetFont( std::string key );
 	std::shared_ptr< sf::Texture > GetTexture( std::string key );
+	std::shared_ptr< CharacterConfiguration > GetCharacterConfig( std::string key );
+
+private:
+	void LoadWindowConfiguration();
+	void LoadResources();
 
 private:
 	json m_configuration;
@@ -30,4 +46,5 @@ private:
 
 	std::map< sf::String, std::shared_ptr< sf::Font > > fonts; 
 	std::map< sf::String, std::shared_ptr< sf::Texture > > textures;
+	std::map< sf::String, std::shared_ptr< CharacterConfiguration > > characters;
 };

@@ -3,11 +3,12 @@
 #include <SFML/Graphics.hpp>
 
 #include "Maze.h"
+#include "AssetLoader.h"	// Nope, but for now
 
 class Character : public sf::Drawable, public sf::Transformable
 {
 public:
-	Character ();
+	Character( std::shared_ptr< CharacterConfiguration > config );
 
 	virtual void Update( sf::Time delta );
 

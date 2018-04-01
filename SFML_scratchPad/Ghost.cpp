@@ -1,17 +1,15 @@
 #include "Ghost.h"
 
-Ghost::Ghost( sf::Texture & texture )
-	: m_visual( texture ), 
+Ghost::Ghost( std::shared_ptr< CharacterConfiguration > config, sf::Texture & texture )
+	: Character( config ),
+	  m_visual( texture ), 
 	  m_isWeak( false ),
 	  m_weaknessDuration( sf::Time::Zero )
 {
-	setOrigin( 20, 20 );
+	setOrigin( config->Origin );
 
-	m_strongAnimator.AddFrame( sf::IntRect( 40, 32, 40, 40 ) );
-	m_strongAnimator.AddFrame( sf::IntRect( 80, 32, 40, 40 ) );
-
-	m_weakAnimator.AddFrame( sf::IntRect( 40, 72, 40, 40 ) );
-	m_weakAnimator.AddFrame( sf::IntRect( 80, 72, 40, 40 ) );
+	m_strongAnimator = config->Animators[ "strong" ];
+	m_weakAnimator = config->Animators[ "weak" ];
 
 	m_strongAnimator.Play( sf::seconds( 0.25 ), true );
 	m_weakAnimator.Play( sf::seconds( 1 ), true );

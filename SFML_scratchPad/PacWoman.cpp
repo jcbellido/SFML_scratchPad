@@ -1,23 +1,16 @@
 #include "PacWoman.h"
 
-PacWoman::PacWoman( sf::Texture & texture ) :	m_visual( texture ),
-												m_isDead( false ),
-												m_isDying( false )
+PacWoman::PacWoman( std::shared_ptr< CharacterConfiguration > config, 
+					sf::Texture & texture ) :	
+	Character( config ),
+	m_visual( texture ),
+	m_isDead( false ),
+	m_isDying( false )
 {
-	setOrigin( 20, 20 );
+	setOrigin( config->Origin );
 
-	SetSpeed( 32 );
-
-	m_runAnimator.AddFrame( sf::IntRect(  0,  32, 40, 40 ) );
-	m_runAnimator.AddFrame( sf::IntRect(  0,  72, 40, 40 ) );
-
-    m_dieAnimator.AddFrame(sf::IntRect(  0,  32, 40, 40));
-    m_dieAnimator.AddFrame(sf::IntRect(  0,  72, 40, 40));
-    m_dieAnimator.AddFrame(sf::IntRect(  0, 112, 40, 40));
-    m_dieAnimator.AddFrame(sf::IntRect( 40, 112, 40, 40));
-    m_dieAnimator.AddFrame(sf::IntRect( 80, 112, 40, 40));
-    m_dieAnimator.AddFrame(sf::IntRect(120, 112, 40, 40));
-    m_dieAnimator.AddFrame(sf::IntRect(160, 112, 40, 40));
+	m_runAnimator = config->Animators[ "run" ];
+	m_dieAnimator = config->Animators[ "die" ];
 
 	m_runAnimator.Play( sf::seconds( 0.75f ), true );
 }

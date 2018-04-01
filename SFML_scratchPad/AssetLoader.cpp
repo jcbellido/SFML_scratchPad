@@ -5,10 +5,34 @@ AssetLoader::AssetLoader(  std::string pathToJsonFile  )
 	std::ifstream configFile ( pathToJsonFile );
 	configFile >> m_configuration;
 
-	m_windowName   = m_configuration[ "GameConfig" ][ "WindowTitle" ];
-	m_windowWidth  = m_configuration[ "GameConfig" ][ "WindowWidth" ];
-	m_windowHeight = m_configuration[ "GameConfig" ][ "WindowHeight"];
 
+	for( auto character : m_configuration[ "Characters" ] )
+	{
+		std::shared_ptr< CharacterConfiguration > cc = std::make_shared< CharacterConfiguration >();
+		std::string characterName = character[ "Name" ];
+		cc->Origin = sf::Vector2f( character[ "Origin" ][ "x" ], character[ "Origin" ][ "x" ] );
+		cc->Speed  = character[ "Speed" ];
+
+		for( auto animator : character[ "Animators" ] ) 
+		{
+			Animator anim;
+			for( auto frame : animator[ "Frames" ] )
+			{
+				anim.AddFrame( sf::IntRect( frame[ "rl" ], frame[ "rt" ], frame[ "rw" ], frame[ "rh" ] ) );
+			}
+
+			cc->Animators[ animator[ "Name"] ] = anim;
+		}
+
+		characters[ characterName ] = cc;
+	}
+
+	LoadWindowConfiguration();
+	LoadResources();
+}
+
+void AssetLoader::LoadResources()
+{
 	for( auto res : m_configuration["Resources"] )
 	{
 		std::string typeName = res[ "Type" ];
@@ -28,6 +52,13 @@ AssetLoader::AssetLoader(  std::string pathToJsonFile  )
 			textures[ assetName ] = t;
 		}
 	}
+}
+
+void AssetLoader::LoadWindowConfiguration()
+{
+	m_windowName   = m_configuration[ "GameConfig" ][ "WindowTitle" ];
+	m_windowWidth  = m_configuration[ "GameConfig" ][ "WindowWidth" ];
+	m_windowHeight = m_configuration[ "GameConfig" ][ "WindowHeight"];
 }
 
 std::string const & AssetLoader::WindowName () const
@@ -59,6 +90,16 @@ std::shared_ptr< sf::Texture > AssetLoader::GetTexture( std::string key )
 {
 	auto result = textures.find( key );
 	if ( result == textures.end() )
+	{
+		return nullptr;
+	}
+	return result->second;
+}
+
+std::shared_ptr< CharacterConfiguration > AssetLoader::GetCharacterConfig ( std::string key )
+{
+	auto result = characters.find( key );
+	if( result == characters.end() )
 	{
 		return nullptr;
 	}

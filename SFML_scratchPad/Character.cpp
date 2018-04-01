@@ -1,10 +1,10 @@
 #include "Character.h"
 
-Character::Character()
-:m_speed(1.f),
- m_currentDirection( 1, 0 ),
- m_nextDirection( 0, 0 ),
- m_maze( nullptr  )
+Character::Character( std::shared_ptr< CharacterConfiguration > config )
+: m_speed( config->Speed ),
+  m_currentDirection( 1, 0 ),
+  m_nextDirection( 0, 0 ),
+  m_maze( nullptr  )
 {
 }
 
