@@ -22,6 +22,9 @@ private:
 
 	sf::Sprite m_visual;
 
+	float m_runDuration;
 	Animator m_runAnimator;
+
+	float m_dieDurantion;
 	Animator m_dieAnimator;
 };

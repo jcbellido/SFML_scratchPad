@@ -54,12 +54,14 @@ void PlayingState::Update ( sf::Time delta )
 
 	if( m_camera.getCenter().x > m_maze.GetSize().x * 32 - 240 )
 	{
-		m_camera.setCenter( static_cast< float > ( m_maze.GetSize().x ) * 32 - 240, m_camera.getCenter().y );
+		m_camera.setCenter( static_cast< float > ( m_maze.GetSize().x ) * 32 - 240, 
+							m_camera.getCenter().y );
 	}
 
 	if( m_camera.getCenter().y > m_maze.GetSize().y * 32 - 240 )
 	{
-		m_camera.setCenter( m_camera.getCenter().y , m_maze.GetSize().y * 32 - 240 );
+		m_camera.setCenter( m_camera.getCenter().y , 
+							static_cast< float > ( m_maze.GetSize().y * 32 ) - 240 );
 	}
 
 	m_packWoman->Update( delta );

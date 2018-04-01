@@ -34,12 +34,12 @@
   "Characters": [
     {
       "Name": "PackWoman",
-      "Speed" :  32,
+      "Speed" :  128,
       "Origin": { "x": 20, "y": 20 },
       "Animators": [
         {
           "Name": "run",
-          "DurationInSeconds": 0.25,
+          "DurationInSeconds": 0.75,
           "Frames": [
             { "rl" : 0, "rt" : 32, "rw" :  40, "rh" : 40 },
             { "rl" : 0, "rt" : 72, "rw" :  40, "rh" : 40 }

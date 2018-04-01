@@ -25,9 +25,8 @@ Game::Game () : m_coinsInserted( 0 ),
 	m_music = m_assetLoader.GetMusic( "noCoinMusic" );
 	InitializeGameStates ();
 
-	// Change me ...
-	m_currentState = m_states[ GameState::NoCoin ];
-	// m_currentState = m_states[ GameState::Playing ];
+	// -- m_currentState = m_states[ GameState::NoCoin ];
+	m_currentState = m_states[ GameState::Playing ];
 
 	m_currentState->PreEnter();
 	// m_music->play();

@@ -26,7 +26,7 @@ void AssetLoader::LoadCharacters()
 			{
 				anim.AddFrame( sf::IntRect( frame[ "rl" ], frame[ "rt" ], frame[ "rw" ], frame[ "rh" ] ) );
 			}
-
+			cc->Parameters[ animator[ "Name"] ] = animator[ "DurationInSeconds" ];
 			cc->Animators[ animator[ "Name"] ] = anim;
 		}
 

@@ -16,10 +16,13 @@ public:
 
 private:
 	std::vector< sf::IntRect > m_frames;
-
+	
 	bool m_isPlaying;
-	sf::Time m_duration;
 	bool m_loop;
+	
+	sf::Time m_duration;
+	sf::Time m_frameDuration;
+	sf::Time m_timeBuffer; 
 
 	unsigned int m_currentFrame;
 };

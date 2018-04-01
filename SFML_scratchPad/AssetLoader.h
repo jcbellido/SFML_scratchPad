@@ -20,7 +20,20 @@ public:
 	sf::Vector2f Origin;
 	
 	std::map< std::string, Animator > Animators;
+	std::map< std::string, float > Parameters;
 };
+
+using spFont = std::shared_ptr< sf::Font >;
+using spCharConfig = std::shared_ptr< CharacterConfiguration >;
+using spMusic = std::shared_ptr< sf::Music >;
+using spSoundBuffer = std::shared_ptr< sf::SoundBuffer >;
+using spTexture = std::shared_ptr< sf::Texture >;
+
+using characterConfigurationMap = std::map< sf::String, spCharConfig >;
+using fontMap = std::map< sf::String, spFont >;
+using musicMap = std::map< sf::String, spMusic >;
+using soundBufferMap = std::map< sf::String, spSoundBuffer >;
+using textureMap = std::map< sf::String, spTexture >;
 
 class AssetLoader
 {
@@ -30,11 +43,11 @@ public:
 	int WindowWidth() const;
 	int WindowHeight() const;
 
-	std::shared_ptr< sf::Font > GetFont( std::string key );
-	std::shared_ptr< sf::Music > GetMusic( std::string key );
-	std::shared_ptr< sf::Texture > GetTexture( std::string key );
-	std::shared_ptr< sf::SoundBuffer > GetSound( std::string key );
-	std::shared_ptr< CharacterConfiguration > GetCharacterConfig( std::string key );
+	spFont GetFont( std::string key );
+	spMusic GetMusic( std::string key );
+	spTexture GetTexture( std::string key );
+	spSoundBuffer GetSound( std::string key );
+	spCharConfig GetCharacterConfig( std::string key );
 
 private:
 	void LoadWindowConfiguration();
@@ -47,9 +60,9 @@ private:
 	int m_windowWidth;
 	int m_windowHeight;
 
-	std::map< sf::String, std::shared_ptr< CharacterConfiguration > > characters;
-	std::map< sf::String, std::shared_ptr< sf::Font > > fonts; 
-	std::map< sf::String, std::shared_ptr< sf::Music > > musics;
-	std::map< sf::String, std::shared_ptr< sf::SoundBuffer > > sounds;
-	std::map< sf::String, std::shared_ptr< sf::Texture > > textures;
+	characterConfigurationMap characters;
+	fontMap fonts; 
+	musicMap musics;
+	soundBufferMap sounds;
+	textureMap textures;
 };

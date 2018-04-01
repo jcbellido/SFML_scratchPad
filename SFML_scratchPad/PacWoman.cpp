@@ -10,16 +10,19 @@ PacWoman::PacWoman( std::shared_ptr< CharacterConfiguration > config,
 	setOrigin( config->Origin );
 
 	m_runAnimator = config->Animators[ "run" ];
-	m_dieAnimator = config->Animators[ "die" ];
+	m_runDuration = config->Parameters[ "run" ];
 
-	m_runAnimator.Play( sf::seconds( 0.75f ), true );
+	m_dieAnimator = config->Animators[ "die" ];
+	m_dieDurantion = config->Parameters[ "die" ];
+
+	m_runAnimator.Play( sf::seconds( m_runDuration ), true );
 }
 
 void PacWoman::Die()
 {
 	if( ! IsDying() )
 	{
-		m_dieAnimator.Play( sf::seconds( 1 ), false );
+		m_dieAnimator.Play( sf::seconds( m_dieDurantion ), false );
 		m_isDying = true;
 	}
 }
