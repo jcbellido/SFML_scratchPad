@@ -2,6 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <algorithm>
+#include <memory>
+
 class Game;
 
 class GameState

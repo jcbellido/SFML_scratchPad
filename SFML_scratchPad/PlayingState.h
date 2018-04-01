@@ -9,7 +9,6 @@ class PlayingState : public GameState
 {
 public:
 	PlayingState ( Game * game );
-	~PlayingState();
 
 	void InsertCoin ();
 	void PressButton ();
@@ -21,7 +20,7 @@ public:
 
 private: 
 	Maze m_maze;
-	PacWoman * m_packWoman;
-	std::vector< Ghost * > m_ghosts;
+	std::unique_ptr< PacWoman > m_packWoman;
+	std::vector< std::shared_ptr< Ghost > > m_ghosts;
 	sf::View m_camera;
 };

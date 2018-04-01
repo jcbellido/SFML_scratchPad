@@ -3,18 +3,17 @@
 #include "GraphicsUtils.h"
 
 PlayingState::PlayingState ( Game * game ) : GameState( game ),
-	m_maze( * game->GetTexture("atlas") ),
-	m_packWoman( nullptr )
+	m_maze( * game->GetTexture("atlas") )
 { 
 	m_maze.LoadLevel( "large-level" );
 
-	m_packWoman = new PacWoman(  * game->GetTexture("atlas") );
+	m_packWoman = std::make_unique< PacWoman >(  * game->GetTexture("atlas") );
 	m_packWoman->SetMaze( & m_maze );
 	m_packWoman->setPosition( m_maze.MapCellToPixel( m_maze.getPacWomanPosition() ) );
 
 	for( auto ghostPosition : m_maze.getGhostPositions() )
 	{
-		Ghost * ghost = new Ghost(  * game->GetTexture("atlas") );
+		auto ghost = std::make_shared< Ghost >( * game->GetTexture("atlas") );
 		ghost->SetMaze( & m_maze );
 		ghost->setPosition( m_maze.MapCellToPixel( ghostPosition ) );
 		m_ghosts.push_back( ghost );
@@ -22,15 +21,6 @@ PlayingState::PlayingState ( Game * game ) : GameState( game ),
 
 	m_camera.setSize( sf::Vector2f( 480, 480 ) );
 	m_camera.setCenter( m_packWoman ->getPosition() );
-}
-
-PlayingState::~PlayingState()
-{
-	delete( m_packWoman );
-	for( Ghost * ghost : m_ghosts )
-	{
-		delete( ghost );
-	}
 }
 
 void PlayingState::InsertCoin () { 	GetGame()->InsertCoin(); }
@@ -71,10 +61,8 @@ void PlayingState::Update ( sf::Time delta )
 	}
 
 	m_packWoman->Update( delta );
-	for( Ghost * ghost : m_ghosts )
-	{
-		ghost->Update( delta );
-	}
+	std::for_each( m_ghosts.begin(), m_ghosts.end(), 
+				[ delta ] ( auto g ) { g->Update( delta );  } );
 }
 
 void PlayingState::Draw ( sf::RenderWindow & window ) 
@@ -83,8 +71,7 @@ void PlayingState::Draw ( sf::RenderWindow & window )
 	window.draw( m_maze );
 	window.draw ( *m_packWoman );
 
-	for ( Ghost * g : m_ghosts )
-	{
-		window.draw ( *g );
-	}
+	std::for_each( m_ghosts.begin(), m_ghosts.end(), 
+				[ & ] ( auto g ) { window.draw( * g ); } );
 }
+

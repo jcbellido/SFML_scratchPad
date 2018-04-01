@@ -21,7 +21,37 @@
       "File": "resources/texture.png"
     }
   ],
-  "PackWoman": {
-    "Speed" : 64
-  }
+  "Characters": [
+    {
+      "Name": "PackWoman",
+      "Speed" :  32,
+      "Origin": {
+        "x": 20,
+        "y": 20
+      },
+      "Animators": [
+        {
+          "Name": "strong",
+          "DurationInSeconds": 0.25,
+          "Frames": [
+            { "rl" : 0, "rt" :  0, "rw" :  40, "rh" : 40 },
+            { "rl" : 0, "rt" : 72, "rw" :  40, "rh" : 40 }
+          ]
+        },
+        {
+          "Name": "die",
+          "DurationInSeconds": 0.75,
+          "Frames": [
+            { "rl" :  0, "rt" : 32, "rw" :  40, "rh" : 40 },
+            { "rl" :  0, "rt" : 72, "rw" :  40, "rh" : 40 },
+            { "rl" :  0, "rt" :112, "rw" :  40, "rh" : 40 },
+            { "rl" : 40, "rt" :112, "rw" :  40, "rh" : 40 },
+          	{ "rl" : 80, "rt" :112, "rw" :  40, "rh" : 40 },
+          	{ "rl" :120, "rt" :112, "rw" :  40, "rh" : 40 },
+          	{ "rl" :160, "rt" :112, "rw" :  40, "rh" : 40 },
+          ]
+        }
+      ]
+  	}
+  ]
 }

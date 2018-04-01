@@ -12,7 +12,6 @@ class Game
 {
 public:
 	Game ();
-	~Game();
 	void Run ();
 
 	void ChangeGameState( GameState::State gameState );
@@ -36,9 +35,9 @@ private:
 
 	AssetLoader m_assetLoader;
 
-	sf::RenderWindow * m_window;
-	GameState * m_currentState;
-	std::array< GameState *, GameState::Count > m_states;
+	std::shared_ptr< sf::RenderWindow > m_window;
+	std::shared_ptr< GameState > m_currentState;
+	std::array< std::shared_ptr< GameState >, GameState::Count > m_states;
 	
 	sf::Music m_music;
 	sf::SoundBuffer m_soundCoinBuffer;

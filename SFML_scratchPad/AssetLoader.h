@@ -23,10 +23,11 @@ public:
 	std::shared_ptr< sf::Texture > GetTexture( std::string key );
 
 private:
+	json m_configuration;
 	std::string m_windowName;
 	int m_windowWidth;
 	int m_windowHeight;
 
 	std::map< sf::String, std::shared_ptr< sf::Font > > fonts; 
-	std::map< sf::String, std::shared_ptr< sf::Texture > > textures; 
+	std::map< sf::String, std::shared_ptr< sf::Texture > > textures;
 };

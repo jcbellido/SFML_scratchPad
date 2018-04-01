@@ -3,11 +3,11 @@
 
 void Game::InitializeGameStates ()
 {
-	m_states [ GameState::NoCoin ] = new NoCoinState ( this );
-	m_states [ GameState::GetReady ] = new GetReadyState ( this );
-	m_states [ GameState::Playing ] = new PlayingState ( this );
-	m_states [ GameState::Won ] = new WonState ( this );
-	m_states [ GameState::Lost ] = new LostState ( this );
+	m_states [ GameState::NoCoin ]   = std::make_shared< NoCoinState >( this );
+	m_states [ GameState::GetReady ] = std::make_shared< GetReadyState > ( this );
+	m_states [ GameState::Playing ]  = std::make_shared< PlayingState > ( this );
+	m_states [ GameState::Won ]      = std::make_shared< WonState > ( this );
+	m_states [ GameState::Lost ]     = std::make_shared< LostState > ( this );
 }
 
 void Game::LoadSharedResources ()
@@ -23,12 +23,11 @@ void Game::LoadSharedResources ()
     m_soundCoin.setBuffer( m_soundCoinBuffer );
 }
 
-
 void Game::ConstructWindow()
 {
-	m_window = new sf::RenderWindow( sf::VideoMode ( m_assetLoader.WindowWidth(), 
+	m_window = std::make_shared< sf::RenderWindow >( sf::VideoMode ( m_assetLoader.WindowWidth(), 
 													 m_assetLoader.WindowHeight() ), 
-									m_assetLoader.WindowName() );
+													 m_assetLoader.WindowName() );
 }
 
 Game::Game () : m_coinsInserted( 0 ),
@@ -45,14 +44,6 @@ Game::Game () : m_coinsInserted( 0 ),
 
 	m_currentState->PreEnter();
 	// m_music.play();
-}
-
-Game::~Game ()
-{
-	for ( GameState * state : m_states )
-		delete( state );
-
-	delete( m_window );
 }
 
 sf::Vector2u Game::GetVideoSize()

@@ -2,15 +2,14 @@
 
 AssetLoader::AssetLoader(  std::string pathToJsonFile  )
 {
-	json configuration;
 	std::ifstream configFile ( pathToJsonFile );
-	configFile >> configuration;
+	configFile >> m_configuration;
 
-	m_windowName   = configuration[ "GameConfig" ][ "WindowTitle" ];
-	m_windowWidth  = configuration[ "GameConfig" ][ "WindowWidth" ];
-	m_windowHeight = configuration[ "GameConfig" ][ "WindowHeight"];
+	m_windowName   = m_configuration[ "GameConfig" ][ "WindowTitle" ];
+	m_windowWidth  = m_configuration[ "GameConfig" ][ "WindowWidth" ];
+	m_windowHeight = m_configuration[ "GameConfig" ][ "WindowHeight"];
 
-	for( auto res : configuration["Resources"] )
+	for( auto res : m_configuration["Resources"] )
 	{
 		std::string typeName = res[ "Type" ];
 		std::string assetName = res[ "Name" ];
