@@ -10,10 +10,10 @@ LostState::LostState ( Game * game ) : GameState( game ),
 { 
 	auto videoSize = game->GetVideoSize();
 
-	m_textBanner.setFont( game->GetFont() );
+	m_textBanner.setFont( * game->GetFont( "mainFont" ) );
 	m_textBanner.setPosition( static_cast<float>( videoSize.x ) / 2.0f , 150 );
 
-	m_textCounter.setFont( game->GetFont() );
+	m_textCounter.setFont( * game->GetFont( "mainFont" ) );
 	m_textCounter.setPosition( static_cast<float>( videoSize.x ) / 2.0f , 200  );
 }
 

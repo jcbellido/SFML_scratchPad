@@ -85,10 +85,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <TreatWarningAsError>false</TreatWarningAsError>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)../sfml/lib/x64/Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -141,6 +142,7 @@ copy $(SolutionDir)resources\audio\*.* $(OutputPath)resources\audio
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="AssetLoader.cpp" />
     <ClCompile Include="Bonus.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Dot.cpp" />
@@ -151,15 +153,12 @@ copy $(SolutionDir)resources\audio\*.* $(OutputPath)resources\audio
     <ClCompile Include="PacWoman.cpp" />
     <ClCompile Include="PlayingState.cpp" />
     <ClCompile Include="GetReadyState.cpp" />
-    <ClCompile Include="graphicsModule.cpp" />
     <ClCompile Include="LostState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NoCoinState.cpp" />
     <ClCompile Include="src\sfml_main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="systemModule.cpp" />
-    <ClCompile Include="windowModule.cpp" />
     <ClCompile Include="WonState.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +176,7 @@ copy $(SolutionDir)resources\audio\*.* $(OutputPath)resources\audio
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\nice_music.ogg" />
+    <None Include="resources\Packitty.json" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="resources\font.ttf" />
@@ -184,6 +184,7 @@ copy $(SolutionDir)resources\audio\*.* $(OutputPath)resources\audio
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animator.h" />
+    <ClInclude Include="AssetLoader.h" />
     <ClInclude Include="Bonus.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Dot.h" />
@@ -192,6 +193,7 @@ copy $(SolutionDir)resources\audio\*.* $(OutputPath)resources\audio
     <ClInclude Include="GameStates.h" />
     <ClInclude Include="Ghost.h" />
     <ClInclude Include="Maze.h" />
+    <ClInclude Include="nlohmann\json.hpp" />
     <ClInclude Include="PacWoman.h" />
     <ClInclude Include="PlayingState.h" />
     <ClInclude Include="GetReadyState.h" />

@@ -5,6 +5,7 @@
 #include <SFML/System.hpp>
 #include <array>
 
+#include "AssetLoader.h"
 #include "GameState.h"
 
 class Game
@@ -16,9 +17,8 @@ public:
 
 	void ChangeGameState( GameState::State gameState );
 
-	sf::Font & GetFont();
-	sf::Texture & GetLogo();
-	sf::Texture & GetTexture();
+	std::shared_ptr< sf::Font > GetFont( sf::String key );
+	std::shared_ptr< sf::Texture > GetTexture( sf::String key );
 
 	sf::Vector2u GetVideoSize();
 
@@ -28,18 +28,18 @@ public:
 	int CurrentCoins();
 
 private:
+	void ConstructWindow();
+
+private:
 	void InitializeGameStates();
     void LoadSharedResources();
 
-	sf::RenderWindow m_window;
+	AssetLoader m_assetLoader;
+
+	sf::RenderWindow * m_window;
 	GameState * m_currentState;
 	std::array< GameState *, GameState::Count > m_states;
 	
-	// This is not even funny
-	sf::Font m_font;
-	sf::Texture m_logo;
-	sf::Texture m_texture;
-
 	sf::Music m_music;
 	sf::SoundBuffer m_soundCoinBuffer;
 	sf::Sound m_soundCoin;

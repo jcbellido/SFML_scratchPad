@@ -3,18 +3,18 @@
 #include "GraphicsUtils.h"
 
 PlayingState::PlayingState ( Game * game ) : GameState( game ),
-	m_maze( game->GetTexture() ),
+	m_maze( * game->GetTexture("atlas") ),
 	m_packWoman( nullptr )
 { 
 	m_maze.LoadLevel( "large-level" );
 
-	m_packWoman = new PacWoman( game->GetTexture() );
+	m_packWoman = new PacWoman(  * game->GetTexture("atlas") );
 	m_packWoman->SetMaze( & m_maze );
 	m_packWoman->setPosition( m_maze.MapCellToPixel( m_maze.getPacWomanPosition() ) );
 
 	for( auto ghostPosition : m_maze.getGhostPositions() )
 	{
-		Ghost * ghost = new Ghost( game->GetTexture() );
+		Ghost * ghost = new Ghost(  * game->GetTexture("atlas") );
 		ghost->SetMaze( & m_maze );
 		ghost->setPosition( m_maze.MapCellToPixel( ghostPosition ) );
 		m_ghosts.push_back( ghost );
@@ -51,16 +51,24 @@ void PlayingState::Update ( sf::Time delta )
 	m_camera.setCenter( m_packWoman->getPosition() );
 
 	if( m_camera.getCenter().x < 240 )	// Better to use the size ? 
+	{ 
 		m_camera.setCenter( 240, m_camera.getCenter().y );
+	}
 
 	if( m_camera.getCenter().y < 240 )
+	{
 		m_camera.setCenter( m_camera.getCenter().x, 240 );
+	}
 
 	if( m_camera.getCenter().x > m_maze.GetSize().x * 32 - 240 )
-		m_camera.setCenter( m_maze.GetSize().x * 32 - 240, m_camera.getCenter().y );
+	{
+		m_camera.setCenter( static_cast< float > ( m_maze.GetSize().x ) * 32 - 240, m_camera.getCenter().y );
+	}
 
 	if( m_camera.getCenter().y > m_maze.GetSize().y * 32 - 240 )
+	{
 		m_camera.setCenter( m_camera.getCenter().y , m_maze.GetSize().y * 32 - 240 );
+	}
 
 	m_packWoman->Update( delta );
 	for( Ghost * ghost : m_ghosts )

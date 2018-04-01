@@ -7,14 +7,14 @@
 NoCoinState::NoCoinState ( Game * game ) : GameState( game ), 
 										   m_showInsertCoin( true )
 { 
-	m_sprite.setTexture( game->GetLogo() );
+	m_sprite.setTexture( * game->GetTexture( "logo" ) );
 	centerOrigin( m_sprite );
 
 	auto videoSize = game->GetVideoSize();
 
 	m_sprite.setPosition( static_cast<float>( videoSize.x ) / 2.0f , 50 );
 
-	m_text.setFont( game->GetFont() );
+	m_text.setFont( * game->GetFont( "mainFont" ) );
 	m_text.setPosition( static_cast<float>( videoSize.x ) / 2.0f , 150 );
 }
 

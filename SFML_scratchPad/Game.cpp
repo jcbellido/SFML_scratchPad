@@ -12,19 +12,7 @@ void Game::InitializeGameStates ()
 
 void Game::LoadSharedResources ()
 {
-    sf::String filePath = "resources/font.ttf";
-    if ( !m_font.loadFromFile ( filePath ) )
-        throw std::runtime_error ( "Unable to load: " + filePath );
-    
-    filePath = "resources/logo.png";
-    if ( !m_logo.loadFromFile ( filePath ) )
-        throw std::runtime_error ( "Unable to load: " + filePath );
-    
-    filePath = "resources/texture.png";
-    if ( !m_texture.loadFromFile ( filePath ) )
-        throw std::runtime_error ( "Unable to load: " + filePath );
-    
-    filePath = "resources/audio/223241__rap2h__8-l-antre-du-diable.wav";
+    std::string filePath = "resources/audio/223241__rap2h__8-l-antre-du-diable.wav";
     if( !m_music.openFromFile( filePath ) )
         throw std::runtime_error ( "Unable to load: " + filePath );
     
@@ -35,15 +23,25 @@ void Game::LoadSharedResources ()
     m_soundCoin.setBuffer( m_soundCoinBuffer );
 }
 
-Game::Game () : m_window ( sf::VideoMode ( 640, 480 ), "Packitty" ),
-				m_coinsInserted( 0 )
+
+void Game::ConstructWindow()
 {
-    LoadSharedResources ();
+	m_window = new sf::RenderWindow( sf::VideoMode ( m_assetLoader.WindowWidth(), 
+													 m_assetLoader.WindowHeight() ), 
+									m_assetLoader.WindowName() );
+}
+
+Game::Game () : m_coinsInserted( 0 ),
+				m_assetLoader( "resources/Packitty.json" )
+{
+    ConstructWindow();
+
+	LoadSharedResources ();
 	InitializeGameStates ();
+
 	// Change me ...
 	m_currentState = m_states[ GameState::NoCoin ];
-
-	m_currentState = m_states[ GameState::Playing ];
+	// m_currentState = m_states[ GameState::Playing ];
 
 	m_currentState->PreEnter();
 	// m_music.play();
@@ -53,24 +51,26 @@ Game::~Game ()
 {
 	for ( GameState * state : m_states )
 		delete( state );
+
+	delete( m_window );
 }
 
 sf::Vector2u Game::GetVideoSize()
 {
-	return m_window.getSize();
+	return m_window->getSize();
 }
 
 void Game::Run ()
 {
 	sf::Clock frameClock;
-	while ( m_window.isOpen () )
+	while ( m_window->isOpen () )
 	{
 		sf::Event event;
-		while ( m_window.pollEvent ( event ) )
+		while ( m_window->pollEvent ( event ) )
 		{
 			if ( event.type == sf::Event::Closed )
 			{
-				m_window.close ();
+				m_window->close ();
 			}
 
 			if ( event.type == sf::Event::KeyReleased )
@@ -110,9 +110,9 @@ void Game::Run ()
 		}
 
 		m_currentState->Update ( elapsed );
-		m_window.clear ();
-		m_currentState->Draw ( m_window );
-		m_window.display ();
+		m_window->clear ();
+		m_currentState->Draw ( * m_window );
+		m_window->display ();
 	}
 }
 
@@ -123,19 +123,14 @@ void Game::ChangeGameState ( GameState::State gameState )
 	m_currentState->PreEnter();
 }
 
-sf::Font & Game::GetFont ()
+std::shared_ptr< sf::Font > Game::GetFont( sf::String key )
 {
-	return m_font;
+	return m_assetLoader.GetFont( key );
 }
 
-sf::Texture & Game::GetLogo ()
+std::shared_ptr< sf::Texture > Game::GetTexture( sf::String key )
 {
-	return m_logo;
-}
-
-sf::Texture & Game::GetTexture ()
-{
-	return m_texture;
+	return m_assetLoader.GetTexture( key );
 }
 
 void Game::InsertCoin()

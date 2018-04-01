@@ -192,17 +192,21 @@ sf::Vector2i Maze::MapPixelToCell ( sf::Vector2f pixel ) const
 sf::Vector2f Maze::MapCellToPixel ( sf::Vector2i cell ) const
 {
 	sf::Vector2f pixel;
-	pixel.x = cell.x * 32 + 16;
-	pixel.y = cell.y * 32 + 16;
+	pixel.x = static_cast< float >( cell.x ) * 32 + 16;
+	pixel.y = static_cast< float >( cell.y ) * 32 + 16;
 
 	return pixel;
 }
 
 bool Maze::isWall ( sf::Vector2i position ) const
 {
-	if ( position.x < 0 || position.y < 0 || position.x >= m_mazeSize.x || position.y >= m_mazeSize.y )
+	if ( position.x < 0 || 
+		 position.y < 0 || 
+		 position.x >= static_cast< int >( m_mazeSize.x ) || 
+		 position.y >= static_cast< int >( m_mazeSize.y ) )
+	{
 		return false;
-
+	}
 	return m_mazeData [ PositionToIndex ( position ) ] == Wall;
 }
 

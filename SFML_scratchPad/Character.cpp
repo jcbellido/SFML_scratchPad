@@ -45,8 +45,8 @@ void Character::Update( sf::Time delta )
 	sf::Vector2i cellPosition = m_maze->MapPixelToCell( pixelPosition );
 
 	sf::Vector2f offset;
-	offset.x = std::fmod( pixelPosition.x, 32 ) - 16;
-	offset.y = std::fmod( pixelPosition.y, 32 ) - 16;
+	offset.x = static_cast< float >( std::fmod( pixelPosition.x, 32 ) ) - 16;
+	offset.y = static_cast< float >( std::fmod( pixelPosition.y, 32 ) ) - 16;
 
 	if( m_maze->isWall( cellPosition + m_currentDirection ) ) 
 	{

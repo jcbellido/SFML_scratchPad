@@ -7,7 +7,7 @@ GetReadyState::GetReadyState ( Game * game ) : GameState( game ),
 											   m_timeBuffer( sf::Time::Zero )
 { 
 	auto videoSize = game->GetVideoSize();
-	m_text.setFont( game->GetFont() );
+	m_text.setFont( * game->GetFont( "mainFont" ) );
 	m_text.setPosition( static_cast<float>( videoSize.x ) / 2.0f, 
 						static_cast<float>( videoSize.y ) / 2.0f );
 

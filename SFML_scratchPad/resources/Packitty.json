@@ -1,0 +1,27 @@
+{
+  "GameConfig": {
+    "WindowTitle": "Pack Woman",
+    "WindowWidth": 800,
+    "WindowHeight": 600
+  },
+  "Resources": [
+    {
+      "Type": "Font",
+      "Name": "mainFont",
+      "File": "resources/font.ttf"
+    },
+    {
+      "Type": "Texture",
+      "Name": "logo",
+      "File": "resources/logo.png"
+    },
+    {
+      "Type": "Texture",
+      "Name": "atlas",
+      "File": "resources/texture.png"
+    }
+  ],
+  "PackWoman": {
+    "Speed" : 64
+  }
+}
