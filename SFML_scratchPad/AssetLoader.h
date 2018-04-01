@@ -31,12 +31,15 @@ public:
 	int WindowHeight() const;
 
 	std::shared_ptr< sf::Font > GetFont( std::string key );
+	std::shared_ptr< sf::Music > GetMusic( std::string key );
 	std::shared_ptr< sf::Texture > GetTexture( std::string key );
+	std::shared_ptr< sf::SoundBuffer > GetSound( std::string key );
 	std::shared_ptr< CharacterConfiguration > GetCharacterConfig( std::string key );
 
 private:
 	void LoadWindowConfiguration();
 	void LoadResources();
+	void LoadCharacters();
 
 private:
 	json m_configuration;
@@ -44,7 +47,9 @@ private:
 	int m_windowWidth;
 	int m_windowHeight;
 
-	std::map< sf::String, std::shared_ptr< sf::Font > > fonts; 
-	std::map< sf::String, std::shared_ptr< sf::Texture > > textures;
 	std::map< sf::String, std::shared_ptr< CharacterConfiguration > > characters;
+	std::map< sf::String, std::shared_ptr< sf::Font > > fonts; 
+	std::map< sf::String, std::shared_ptr< sf::Music > > musics;
+	std::map< sf::String, std::shared_ptr< sf::SoundBuffer > > sounds;
+	std::map< sf::String, std::shared_ptr< sf::Texture > > textures;
 };

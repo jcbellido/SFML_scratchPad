@@ -32,7 +32,6 @@ private:
 
 private:
 	void InitializeGameStates();
-    void LoadSharedResources();
 
 	AssetLoader m_assetLoader;
 
@@ -40,8 +39,7 @@ private:
 	std::shared_ptr< GameState > m_currentState;
 	std::array< std::shared_ptr< GameState >, GameState::Count > m_states;
 	
-	sf::Music m_music;
-	sf::SoundBuffer m_soundCoinBuffer;
 	sf::Sound m_soundCoin;
+	std::shared_ptr< sf::Music > m_music;
 	int m_coinsInserted = 0;	
 };

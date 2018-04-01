@@ -19,7 +19,17 @@
       "Type": "Texture",
       "Name": "atlas",
       "File": "resources/texture.png"
-    }
+    },
+  	{
+      "Type": "Music",
+      "Name": "noCoinMusic",
+      "File": "resources/audio/223241__rap2h__8-l-antre-du-diable.wav"
+    },
+  	{
+      "Type": "Sound",
+      "Name": "coinInserted",
+      "File": "resources/audio/341695__projectsu012__coins-1.wav"
+    } 
   ],
   "Characters": [
     {

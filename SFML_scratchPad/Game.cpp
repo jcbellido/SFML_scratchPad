@@ -10,19 +10,6 @@ void Game::InitializeGameStates ()
 	m_states [ GameState::Lost ]     = std::make_shared< LostState > ( this );
 }
 
-void Game::LoadSharedResources ()
-{
-    std::string filePath = "resources/audio/223241__rap2h__8-l-antre-du-diable.wav";
-    if( !m_music.openFromFile( filePath ) )
-        throw std::runtime_error ( "Unable to load: " + filePath );
-    
-    filePath = "resources/audio/341695__projectsu012__coins-1.wav";
-    if( !m_soundCoinBuffer.loadFromFile( filePath ) )
-        throw std::runtime_error ( "Unable to load: " + filePath );
-    
-    m_soundCoin.setBuffer( m_soundCoinBuffer );
-}
-
 void Game::ConstructWindow()
 {
 	m_window = std::make_shared< sf::RenderWindow >( sf::VideoMode ( m_assetLoader.WindowWidth(), 
@@ -34,16 +21,16 @@ Game::Game () : m_coinsInserted( 0 ),
 				m_assetLoader( "resources/Packitty.json" )
 {
     ConstructWindow();
-
-	LoadSharedResources ();
+	m_soundCoin.setBuffer( * m_assetLoader.GetSound( "coinInserted" ) );
+	m_music = m_assetLoader.GetMusic( "noCoinMusic" );
 	InitializeGameStates ();
 
 	// Change me ...
 	m_currentState = m_states[ GameState::NoCoin ];
-	m_currentState = m_states[ GameState::Playing ];
+	// m_currentState = m_states[ GameState::Playing ];
 
 	m_currentState->PreEnter();
-	// m_music.play();
+	// m_music->play();
 }
 
 sf::Vector2u Game::GetVideoSize()

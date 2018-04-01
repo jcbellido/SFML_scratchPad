@@ -5,7 +5,13 @@ AssetLoader::AssetLoader(  std::string pathToJsonFile  )
 	std::ifstream configFile ( pathToJsonFile );
 	configFile >> m_configuration;
 
+	LoadWindowConfiguration();
+	LoadResources();
+	LoadCharacters();
+}
 
+void AssetLoader::LoadCharacters()
+{
 	for( auto character : m_configuration[ "Characters" ] )
 	{
 		std::shared_ptr< CharacterConfiguration > cc = std::make_shared< CharacterConfiguration >();
@@ -26,9 +32,6 @@ AssetLoader::AssetLoader(  std::string pathToJsonFile  )
 
 		characters[ characterName ] = cc;
 	}
-
-	LoadWindowConfiguration();
-	LoadResources();
 }
 
 void AssetLoader::LoadResources()
@@ -50,6 +53,18 @@ void AssetLoader::LoadResources()
 			auto t = std::make_shared< sf::Texture >();
 			t->loadFromFile( assetPath );
 			textures[ assetName ] = t;
+		}
+		else if( typeName == "Music" )
+		{
+			auto m = std::make_shared< sf::Music >();
+			m->openFromFile( assetPath );
+			musics[ assetName ] = m;
+		}
+		else if( typeName == "Sound" )
+		{
+			auto sb = std::make_shared< sf::SoundBuffer >();
+			sb->loadFromFile( assetPath );
+			sounds[ assetName ] = sb;
 		}
 	}
 }
@@ -100,6 +115,26 @@ std::shared_ptr< CharacterConfiguration > AssetLoader::GetCharacterConfig ( std:
 {
 	auto result = characters.find( key );
 	if( result == characters.end() )
+	{
+		return nullptr;
+	}
+	return result->second;
+}
+
+std::shared_ptr< sf::Music > AssetLoader::GetMusic ( std::string key )
+{
+	auto result = musics.find( key );
+	if( result == musics.end() )
+	{
+		return nullptr;
+	}
+	return result->second;
+}
+
+std::shared_ptr< sf::SoundBuffer > AssetLoader::GetSound ( std::string key )
+{
+	auto result = sounds.find( key );
+	if( result == sounds.end() )
 	{
 		return nullptr;
 	}
